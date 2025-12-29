@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+:root {
+  font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
+    sans-serif;
+  background-color: black;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@theme {
+  --color-apple-1: #e4f6f0;
+  --color-apple-2: #9dcfca;
+  --color-apple-3: #6b95ac;
+  --color-apple-4: #45657d;
+  --sk-body-text-color: rgb(245, 245, 247);
+  --global-section-background-color-alt-dark: rgb(29, 29, 31);
+}
