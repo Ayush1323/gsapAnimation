@@ -22,7 +22,6 @@ const Highlights = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 50%",
-          markers: true,
         },
       });
     },
@@ -30,20 +29,14 @@ const Highlights = () => {
   );
 
   return (
-    <section
-      ref={sectionRef}
-      className="bg-[#1d1d1f] py-40 perspective-distant overflow-x-hidden"
-    >
+    <section ref={sectionRef} className="bg-[#1d1d1f] pt-40 pb-1 relative">
       <div
         ref={(el) => (textRef.current[0] = el)}
         className="max-w-315 mx-auto text-white text-[56px] font-semibold leading-tight"
       >
         <span className="inline-block mr-3">Get the highlights.</span>
       </div>
-      <div
-        ref={(el) => (textRef.current[1] = el)}
-        className="overflow-x-hidden mt-20"
-      >
+      <div ref={(el) => (textRef.current[1] = el)} className="mt-20">
         <Slider />
       </div>
     </section>

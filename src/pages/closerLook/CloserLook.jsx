@@ -1,0 +1,45 @@
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import OptionsView from "./OptionsView";
+
+gsap.registerPlugin(ScrollTrigger);
+
+function CloserLook() {
+  const closerSectionref = useRef(null);
+  const closerSectionTitleref = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(closerSectionTitleref.current, {
+        opacity: 0,
+        duration: 1.5,
+        y: 100,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: closerSectionref.current,
+          start: "top 80%",
+        //   markers: true,
+        },
+      });
+    },
+    { scope: closerSectionref }
+  );
+
+  return (
+    <section ref={closerSectionref} className="bg-[#1d1d1f] pt-20 text-white">
+      <div
+        ref={closerSectionTitleref}
+        className="max-w-315 mx-auto text-white text-[56px] font-semibold leading-tight"
+      >
+        <span className="inline-block mr-3">Take a closer look.</span>
+      </div>
+      <div className="relative z-10 max-w-350 mx-auto h-full bg-black rounded-4xl mt-20">
+        <OptionsView />
+      </div>
+    </section>
+  );
+}
+
+export default CloserLook;
