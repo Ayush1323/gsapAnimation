@@ -1,5 +1,5 @@
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import { CLOSER_LOOK_OPTIONS } from "../../utils/closerLook/closerLook";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
@@ -10,6 +10,7 @@ function OptionsView() {
   const containerRef = useRef(null);
   const mainCircleRef = useRef(null);
   const itemsRef = useRef([]);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   useGSAP(
     () => {
@@ -84,12 +85,19 @@ function OptionsView() {
         {CLOSER_LOOK_OPTIONS.map((item) => (
           <div
             key={item.id}
-            className=" bg-[#272729] p-4 rounded-full w-fit flex items-center gap-2 cursor-pointer"
+            className={`rounded-3xl bg-[#272729] p-4  w-fit flex items-center gap-2 cursor-pointer`}
+            onClick={() => setActiveIndex(item.id)}
           >
-            <div className="w-6 h-6 border border-white rounded-full flex justify-center items-center text-2xl">
-              +
-            </div>
-            <div className="whitespace-nowrap">{item.label}</div>
+            {activeIndex === item.id ? (
+              <div className="max-w-100">{item.content}</div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <div className="w-6 h-6 border border-white rounded-full flex justify-center items-center text-2xl">
+                  +
+                </div>
+                <div className="whitespace-nowrap">{item.label}</div>
+              </div>
+            )}
           </div>
         ))}
       </div>
