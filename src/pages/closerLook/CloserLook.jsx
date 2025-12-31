@@ -28,7 +28,7 @@ function CloserLook() {
   );
 
   return (
-    <section ref={closerSectionref} className="bg-[#1d1d1f] pt-20 text-white">
+    <section ref={closerSectionref} className="bg-[#1d1d1f] py-20 text-white">
       <div
         ref={closerSectionTitleref}
         className="max-w-315 mx-auto text-white text-[56px] font-semibold leading-tight"

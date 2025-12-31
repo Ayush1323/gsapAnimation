@@ -103,6 +103,8 @@ function Slider() {
           </SwiperSlide>
         ))}
       </Swiper>
+    
+
       <div className="sticky bottom-8 z-10 my-20">
         <Pagination
           total={SLIDER_DATA.length}
