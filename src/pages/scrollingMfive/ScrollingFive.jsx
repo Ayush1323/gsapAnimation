@@ -1,8 +1,8 @@
-import { useRef, useState, useLayoutEffect } from "react";
-import PauseIcon from "../../assets/Icons/PauseIcon";
-import PlayIcon from "../../assets/Icons/PlayIcon";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLayoutEffect, useRef, useState } from "react";
+import PauseIcon from "../../assets/Icons/PauseIcon";
+import PlayIcon from "../../assets/Icons/PlayIcon";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -70,7 +70,7 @@ function ScrollingFive() {
         y: "-50%",
       },
       {
-        scale: 1.15,
+        scale: 1,
         x: "0%",
         y: "0%",
         duration: 3,
@@ -202,12 +202,11 @@ function ScrollingFive() {
 
         {/* Big SVG Text */}
         <svg
-          ref={svgRef}
-          width="full"
-          height="1080"
-          viewBox="0 0 1920 1080"
-          className="absolute top-0 left-0 w-full h-full pointer-events-none"
-        >
+  ref={svgRef}
+  viewBox="0 0 1920 1080"
+  preserveAspectRatio="xMidYMid slice"
+  className="absolute inset-0 w-full h-full pointer-events-none"
+> 
           <g>
             <path d="M1676,0H0v1080h1920V0h-244ZM1014.246,551.146h10.213l.041.294c.886,5.107,5.529,9.033,11.946,9.033,7.259,0,12.282-4.981,12.282-12.113v-.084c0-6.965-5.107-11.946-12.24-11.946-3.46,0-6.459,1.056-8.78,2.997-1.139.928-2.153,2.11-2.871,3.46h-9.497l2.913-35.413h37.396v8.906h-28.702l-1.688,18.36h.211c2.66-4.093,7.681-6.5,13.802-6.5,11.607,0,19.965,8.4,19.965,19.965v.084h0c0,12.535-9.413,21.146-22.876,21.146-12.662,0-21.273-7.556-22.075-17.644l.002.004-.041-.55ZM993.013,524.979l-17.558,43.305h-7.387l-17.558-43.305h-.294v43.305h-9.835v-60.907h12.578l18.655,46.512h.294l18.655-46.512h12.578v60.907h-9.79v-43.305h-.338ZM899.318,492.808c2.977-3.502,7.941-6.115,12.069-6.27.105.469.156,1.045.156,1.62,0,4.233-1.829,8.464-4.337,11.495-2.768,3.344-7.419,5.852-11.128,5.852v-.002c-.419,0-.837-.052-1.097-.105-.052-.209-.156-.837-.156-1.462,0-4.283,2.143-8.464,4.493-11.128h0ZM895.661,510.152c3.186,0,8.255-3.762,14.472-3.762,2.299,0,10.71.209,16.248,8.15-.469.365-8.83,5.12-8.83,15.674,0,12.174,10.605,16.511,10.972,16.613-.105.26-1.725,5.903-5.643,11.651h0c-3.5,5.016-7.21,10.136-12.748,10.136s-7.053-3.291-13.48-3.291-8.569,3.396-13.636,3.396-8.673-4.702-12.748-10.449c-4.755-6.791-8.621-17.292-8.621-27.219,0-15.988,10.396-24.452,20.637-24.452,5.38,0,9.927,3.553,13.375,3.553Z"></path>
           </g>
