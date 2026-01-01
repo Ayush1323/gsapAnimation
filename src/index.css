@@ -42,6 +42,14 @@
 
   --sk-body-text-color: rgb(245, 245, 247);
   --global-section-background-color-alt-dark: rgb(29, 29, 31);
+
+  --rainbow-gradient: linear-gradient(
+    108deg,
+    #0090f7,
+    #ba62fc 33%,
+    #f2416b 66%,
+    #f55600
+  );
 }
 
 @layer utilities {
@@ -68,6 +76,12 @@
   }
   .text-blue-cyan {
     background: var(--gradient-blue-cyan);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-rainbow {
+    background: var(--rainbow-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

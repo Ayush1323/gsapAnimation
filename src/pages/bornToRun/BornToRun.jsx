@@ -20,7 +20,7 @@ function BornToRun() {
         scrollTrigger: {
           trigger: cardRef.current,
           start: "top 60%",
-          markers: true,
+          // markers: true,
         },
       });
     },
