@@ -1,4 +1,6 @@
 import "./App.css";
+import BornToRun from "./pages/bornToRun/BornToRun";
+import BuiltForAi from "./pages/builtForAi/BuiltForAi";
 import CloserLook from "./pages/closerLook/CloserLook";
 import DragonLaptop from "./pages/dragonLaptop/DragonLaptop";
 import Header from "./pages/header/Header";
@@ -17,6 +19,8 @@ function App() {
       <ScrollingFive />
       <DragonLaptop />
       <ThreeChips />
+      <BuiltForAi />
+      <BornToRun />
     </>
   );
 }
