@@ -6,6 +6,7 @@ import {
   CHEAP_IMAGES,
   CHIP_INFORMATION,
 } from "../../utils/chips/chipsInformation";
+import StickyHeadingChip from "./StickyHeadingChip";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,67 +105,72 @@ function Chips() {
   );
 
   return (
-    <section
-      ref={sectionRef}
-      className="h-screen max-w-350 mx-auto flex items-center"
-    >
-      <div className="grid grid-cols-[1fr_300px] gap-12 items-start w-full">
-        <div className="relative">
-          <img
-            src="./src/assets/Images/chips/performance_laptop_screen.jpg"
-            className="w-full"
-            alt=""
-          />
-          {CHEAP_IMAGES.map((src, i) => (
+    <>
+      <section
+        ref={sectionRef}
+        className="h-screen max-w-350 mx-auto flex items-center"
+      >
+        <div className="grid grid-cols-[1fr_300px] gap-12 items-start w-full">
+          <div className="relative">
             <img
-              key={i}
-              ref={(el) => (imagesRef.current[i] = el)}
-              src={src}
-              className="absolute top-0 left-0 w-full h-full object-cover mix-blend-screen opacity-0"
+              src="./src/assets/Images/chips/performance_laptop_screen.jpg"
+              className="w-full"
               alt=""
             />
-          ))}
-        </div>
-
-        <div className="flex flex-col gap-6 mt-20">
-          <div className="flex gap-4">
-            {["M5", "M4 Pro", "M4 Max"].map((label, i) => (
-              <div
+            {CHEAP_IMAGES.map((src, i) => (
+              <img
                 key={i}
-                ref={(el) => (chipsRef.current[i] = el)}
-                className="w-16 h-16 rounded-2xl bg-[#333336] flex items-center justify-center text-[#f5f5f7] font-semibold transition-all duration-300"
-              >
-                {label}
-              </div>
+                ref={(el) => (imagesRef.current[i] = el)}
+                src={src}
+                className="absolute top-0 left-0 w-full h-full object-cover mix-blend-screen"
+                alt=""
+              />
             ))}
           </div>
 
-          <div className="relative">
-            {CHIP_INFORMATION.map((c, i) => (
-              <div
-                key={i}
-                ref={(el) => (contentsRef.current[i] = el)}
-                className="absolute top-0 left-0 w-full opacity-0"
-              >
-                <p className="font-semibold text-[#F5F5F7] text-[28px] leading-[1.2]">
-                  {c.text}
-                </p>
-                <p
-                  className={`${c.gradientText} text-apple-gradient font-semibold text-[28px] leading-[1.2] mt-4`}
+          <div className="flex flex-col gap-6 mt-20">
+            <div className="flex gap-4">
+              {["M5", "M4 Pro", "M4 Max"].map((label, i) => (
+                <div
+                  key={i}
+                  ref={(el) => (chipsRef.current[i] = el)}
+                  className="w-16 h-16 rounded-2xl bg-[#333336] flex items-center justify-center text-[#f5f5f7] font-semibold transition-all duration-300"
                 >
-                  {c.available}
-                </p>
-                <p
-                  className={`${c.gradientText} text-apple-gradient font-semibold text-[28px] leading-[1.2] mt-4`}
+                  {label}
+                </div>
+              ))}
+            </div>
+
+            <div className="relative">
+              {CHIP_INFORMATION.map((c, i) => (
+                <div
+                  key={i}
+                  ref={(el) => (contentsRef.current[i] = el)}
+                  className="absolute top-0 left-0 w-full opacity-0"
                 >
-                  {c.faster}
-                </p>
-              </div>
-            ))}
+                  <p className="font-semibold text-[#F5F5F7] text-[28px] leading-[1.2]">
+                    {c.text}
+                  </p>
+                  <p
+                    className={`${c.gradientText} text-apple-gradient font-semibold text-[28px] leading-[1.2] mt-4`}
+                  >
+                    {c.available}
+                  </p>
+                  <p
+                    className={`${c.gradientText} text-apple-gradient font-semibold text-[28px] leading-[1.2] mt-4`}
+                  >
+                    {c.faster}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="flex items-center justify-center sticky bottom-10 col-span-2">
+            <StickyHeadingChip />
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 

@@ -51,7 +51,7 @@ function ScrollingFive() {
         end: "+=2400",
         scrub: true,
         pin: true,
-        markers: true,
+        // markers: true,
       },
     });
 

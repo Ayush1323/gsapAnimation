@@ -2,7 +2,7 @@ import Chips from "./Chips";
 
 function ThreeChips() {
   return (
-    <div className="pt-20">
+    <div className="pt-20 relative">
       <div className="max-w-200 mx-auto">
         <h2 className="text-[56px] font-semibold text-[#f5f5f7] leading-[1.2]">
           Three chips.
