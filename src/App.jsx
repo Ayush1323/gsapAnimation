@@ -10,6 +10,7 @@ import Header from "./pages/header/Header";
 import Hero from "./pages/heroSection/Hero";
 import Highlights from "./pages/highlights/Highlights";
 import Intelligence from "./pages/intelligence/Intelligence";
+import LequidSlider from "./pages/lequidSlider/LequidSlider";
 import ScrollingFive from "./pages/scrollingMfive/ScrollingFive";
 import ThreeChips from "./pages/threeChips/ThreeChips";
 
@@ -29,6 +30,7 @@ function App() {
       <GreatPowers />
       <BatteryLife />
       <FreshFaced />
+      <LequidSlider />
     </>
   );
 }
