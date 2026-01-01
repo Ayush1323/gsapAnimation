@@ -15,7 +15,61 @@
   --color-apple-2: #9dcfca;
   --color-apple-3: #6b95ac;
   --color-apple-4: #45657d;
+  --apple-chip-1: #20c9b7;
+  --apple-chip-2: #6fe3d6;
+  --apple-chip-3: #b8f4eb;
+
+  --gradient-apple: linear-gradient(
+    90deg,
+    var(--color-apple-1),
+    var(--color-apple-2) 31%,
+    var(--color-apple-3) 68%,
+    var(--color-apple-4)
+  );
+
+  --gradient-apple-chip: linear-gradient(
+    135deg,
+    var(--apple-chip-1),
+    var(--apple-chip-2),
+    var(--apple-chip-3)
+  );
+
+  /* New gradient added */
+  --gradient-pink-purple: linear-gradient(90deg, #ffe1fc 7%, #c683ef 79%);
+  --gradient-blue-cyan: linear-gradient(90deg, #e1e5ff 7%, #83a0ef 80%);
+  --gradient-m4-pro: linear-gradient(135deg, #1a4fff, #3fa1ff);
+  --gradient-m4-max: linear-gradient(135deg, #6c4fff, #c683ef);
+
   --sk-body-text-color: rgb(245, 245, 247);
   --global-section-background-color-alt-dark: rgb(29, 29, 31);
 }
 
+@layer utilities {
+  .bg-apple-chip {
+    background: var(--gradient-apple-chip);
+  }
+  .bg-m4-pro {
+    background: var(--gradient-m4-pro);
+  }
+  .bg-m4-max {
+    background: var(--gradient-m4-max);
+  }
+  .text-apple-gradient {
+    background: var(--gradient-apple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-pink-purple {
+    background: var(--gradient-pink-purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-blue-cyan {
+    background: var(--gradient-blue-cyan);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}

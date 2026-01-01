@@ -5,6 +5,7 @@ import Header from "./pages/header/Header";
 import Hero from "./pages/heroSection/Hero";
 import Highlights from "./pages/highlights/Highlights";
 import ScrollingFive from "./pages/scrollingMfive/ScrollingFive";
+import ThreeChips from "./pages/threeChips/ThreeChips";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <CloserLook />
       <ScrollingFive />
       <DragonLaptop />
+      <ThreeChips />
     </>
   );
 }
