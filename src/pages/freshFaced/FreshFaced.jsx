@@ -23,7 +23,7 @@ function FreshFaced() {
     const ctx = gsap.context(() => {
       gsap.set(wrapperRef.current, {
         width: "1100px",
-        borderRadius: "24px",
+        borderRadius: "40px",
         overflow: "hidden",
       });
 
@@ -36,7 +36,7 @@ function FreshFaced() {
           start: "top 80%",
           end: "+=600",
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       });
     }, sectionRef);
@@ -45,34 +45,57 @@ function FreshFaced() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full flex justify-center items-center bg-black"
-    >
-      <div
-        ref={wrapperRef}
-        className="relative w-full flex justify-center items-center"
+    <>
+      <section
+        ref={sectionRef}
+        className="relative w-full flex justify-center items-center bg-black"
       >
-        <video
-          ref={videoRef}
-          src="./src/assets/Videos/waves-video.mp4"
-          muted
-          playsInline
-          autoPlay
-          onPlay={() => setIsPaused(false)}
-          onPause={() => setIsPaused(true)}
-          className="w-full h-200 object-cover"
-        />
-
-        <button
-          onClick={toggleVideo}
-          aria-label={isPaused ? "Play video" : "Pause video"}
-          className="absolute top-5 right-5 z-30 h-10 w-10 bg-black/60 rounded-full flex items-center justify-center cursor-pointer"
+        <div
+          ref={wrapperRef}
+          className="relative w-full flex justify-center items-center"
         >
-          {isPaused ? <PlayIcon size={20} /> : <PauseIcon size={20} />}
-        </button>
+          <video
+            ref={videoRef}
+            src="./src/assets/Videos/waves-video.mp4"
+            muted
+            playsInline
+            loop
+            autoPlay
+            onPlay={() => setIsPaused(false)}
+            onPause={() => setIsPaused(true)}
+            className="w-full h-220 object-cover"
+          />
+
+          <button
+            onClick={toggleVideo}
+            aria-label={isPaused ? "Play video" : "Pause video"}
+            className="absolute top-5 right-5 z-30 h-10 w-10 bg-black/60 rounded-full flex items-center justify-center cursor-pointer"
+          >
+            {isPaused ? <PlayIcon size={20} /> : <PauseIcon size={20} />}
+          </button>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-4 h-full w-full bg-black/20 justify-center items-center">
+            <h2 className="text-[24px] font-semibold text-[#f5f5f7] leading-[1.2] text-center">
+              macOS Tahoe
+            </h2>
+            <h3 className="text-[80px] font-semibold text-[#f5f5f7] leading-none text-center">
+              Fresh faced. <br />
+              Timelessly Mac.
+            </h3>
+          </div>
+        </div>
+      </section>
+      <div className="mt-15 max-w-220 mx-auto">
+        <p className="text-[21px]  font-semibold text-[#86868b] leading-[1.2]">
+          macOS Tahoe introduces Liquid Glass, a refined yet familiar look. With
+          new ways to boost your productivity, work seamlessly with iPhone and
+          get even more from Apple Intelligence, it’s the most beautiful and
+          powerful version of macOS yet.
+        </p>
+        <p className="text-[21px] underline text-blue-500 cursor-pointer mt-3">
+          Learn more about macOS Tahoe {">"}
+        </p>
       </div>
-    </section>
+    </>
   );
 }
 

@@ -5,6 +5,22 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
+const batteryStats = [
+  {
+    label: "Up to",
+    value: "24 hours",
+    description: (
+      <>
+        battery life<sup className="underline">3</sup>
+      </>
+    ),
+  },
+  {
+    label: "Up to",
+    value: "14 more hours",
+    description: "than Intel-based MacBook Pro",
+  },
+];
 
 function BatteryLife() {
   const textRef = useRef(null);
@@ -36,7 +52,7 @@ function BatteryLife() {
         </h3>
       </div>
       <BatteryImage />
-      <div className="max-w-237.5 mx-auto">
+      <div className="max-w-237.5 mx-auto mb-10">
         <p className="text-[21px] font-semibold text-[#86868b] py-20">
           MacBook Pro has the{" "}
           <span className="text-white">longest battery life ever in a Mac</span>{" "}
@@ -45,6 +61,23 @@ function BatteryLife() {
           whether they’re plugged in or not, so you can spend more time powering
           your passion, not your laptop.
         </p>
+        <div className="grid grid-cols-2 items-center gap-20">
+          {batteryStats.map((item, index) => (
+            <div key={index}>
+              <hr className="border-sky-gradient mb-10" />
+
+              <div className="flex flex-col">
+                <p className="text-[14px] text-[#f5f5f7]">{item.label}</p>
+
+                <p className="text-[48px] leading-none font-semibold text-sky-gradient">
+                  {item.value}
+                </p>
+
+                <p className="text-[14px] text-[#f5f5f7]">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

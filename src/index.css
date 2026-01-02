@@ -50,6 +50,14 @@
     #f2416b 66%,
     #f55600
   );
+
+  --sky-gradient: linear-gradient(
+    90deg,
+    #e4f6f0,
+    #9dcfca 31%,
+    #6b95ac 68%,
+    #45657d
+  );
 }
 
 @layer utilities {
@@ -85,5 +93,18 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+  .bg-sky-gradient {
+    background: var(--sky-gradient);
+  }
+  .text-sky-gradient {
+    background: var(--sky-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .border-sky-gradient {
+    border-image-slice: 1;
+    border-image-source: var(--sky-gradient);
   }
 }
