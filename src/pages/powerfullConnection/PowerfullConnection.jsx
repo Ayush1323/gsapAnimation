@@ -21,6 +21,12 @@ function PowerfullConnection() {
           </>
         }
       />
+      <div>
+        <img src="src\assets\Images\powerFullConnection\connections_hw_1__rboovclqj6im_large.jpg" alt="" />
+      </div>
+      <div>
+        <img src="src\assets\Images\powerFullConnection\connections_hw_2__bwc0c562jaia_large.jpg" alt="" />
+      </div>
     </div>
   );
 }
