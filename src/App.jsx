@@ -14,6 +14,7 @@ import Highlights from "./pages/highlights/Highlights";
 import Intelligence from "./pages/intelligence/Intelligence";
 import LequidSlider from "./pages/lequidSlider/LequidSlider";
 import NanoTexture from "./pages/nanoTexture/NanoTexture";
+import NoCompromise from "./pages/noCompromise/NoCompromise";
 import PowerfullConnection from "./pages/powerfullConnection/PowerfullConnection";
 import ScrollingFive from "./pages/scrollingMfive/ScrollingFive";
 import ThreeChips from "./pages/threeChips/ThreeChips";
@@ -43,6 +44,7 @@ function App() {
       <NanoTexture />
       <UltimateShow />
       <PowerfullConnection />
+      <NoCompromise />
     </>
   );
 }

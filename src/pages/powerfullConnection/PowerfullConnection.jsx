@@ -1,8 +1,61 @@
+import { useRef } from "react";
 import ContentBlock from "../batterTogather/ContentBlock";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function PowerfullConnection() {
+  const sliderRefConnection = useRef(null);
+  const imgLeftRef = useRef(null);
+  const imgRightRef = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({ paused: true });
+
+    gsap.set(imgLeftRef.current, { x: 1000 });
+    gsap.set(imgRightRef.current, { x: -1000 });
+
+    tl.to(
+      imgLeftRef.current,
+      {
+        x: 0,
+        duration: 10,
+        ease: "power3.out",
+      },
+      0
+    ).to(
+      imgRightRef.current,
+      {
+        x: 0,
+        duration: 10,
+        ease: "power3.out",
+      },
+      0
+    );
+
+    ScrollTrigger.create({
+      trigger: sliderRefConnection.current,
+      start: "top 80%",
+      onEnter: () => {
+        tl.restart();
+      },
+      onEnterBack: () => {
+        tl.restart();
+      },
+      onLeave: () => {
+        tl.pause(0);
+      },
+      onLeaveBack: () => {
+        tl.pause(0);
+      },
+      markers: true,
+    });
+  }, []);
+
   return (
-    <div>
+    <div className="w-full overflow-hidden">
       <ContentBlock
         eyebrow="Ports and Connectivity"
         title="Make powerful connections."
@@ -21,11 +74,45 @@ function PowerfullConnection() {
           </>
         }
       />
-      <div>
-        <img src="src\assets\Images\powerFullConnection\connections_hw_1__rboovclqj6im_large.jpg" alt="" />
+      <div
+        ref={sliderRefConnection}
+        className="flex flex-col gap-20 max-w-210 mx-auto pt-20"
+      >
+        <div ref={imgLeftRef} className="w-450">
+          <img
+            src="src\assets\Images\powerFullConnection\connections_hw_1__rboovclqj6im_large.jpg"
+            alt=""
+          />
+        </div>
+        <div ref={imgRightRef} className="w-450 self-end">
+          <img
+            src="src\assets\Images\powerFullConnection\connections_hw_2__bwc0c562jaia_large.jpg"
+            alt=""
+          />
+        </div>
       </div>
-      <div>
-        <img src="src\assets\Images\powerFullConnection\connections_hw_2__bwc0c562jaia_large.jpg" alt="" />
+
+      <div className="grid grid-cols-2 max-w-230 mx-auto gap-10 pt-25 pb-25">
+        <div className="flex flex-col">
+          <hr className="border-sky-gradient" />
+          <ul className="text-[28px] leading-[1.1] font-semibold text-[#f5f5f7] pt-7.5">
+            <li>
+              Thunderbolt<sup className="underline text-base">11</sup>
+            </li>
+            <li>HDMI</li>
+            <li>SDXC</li>
+            <li>Headphone Jack</li>
+            <li>MagSafe</li>
+          </ul>
+        </div>
+        <div className="flex flex-col">
+          <hr className="border-sky-gradient" />
+          <p className="text-[21px] leading-[1.2] font-semibold text-[#86868b] pt-7.5">
+            <span className="text-white">Drive external displays.</span> Connect
+            up to two high-resolution external displays with M5 and M4 Pro, or
+            up to four high-resolution displays with M4 Max.
+          </p>
+        </div>
       </div>
     </div>
   );
