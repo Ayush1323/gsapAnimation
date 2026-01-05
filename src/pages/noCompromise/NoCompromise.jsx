@@ -29,7 +29,7 @@ function NoCompromise() {
   ];
 
   return (
-    <div className="pt-20 relative">
+    <div className="py-30 relative">
       <ContentBlock
         eyebrow="Security"
         title="No compromises."

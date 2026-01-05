@@ -18,6 +18,7 @@ import NoCompromise from "./pages/noCompromise/NoCompromise";
 import PowerfullConnection from "./pages/powerfullConnection/PowerfullConnection";
 import ScrollingFive from "./pages/scrollingMfive/ScrollingFive";
 import ThreeChips from "./pages/threeChips/ThreeChips";
+import TimeToUpgrade from "./pages/timeToUpgrade/TimeToUpgrade";
 import UltimateShow from "./pages/ultimateShow/UltimateShow";
 import YourAmbitions from "./pages/yourAmbitions/YourAmbitions";
 
@@ -45,6 +46,7 @@ function App() {
       <UltimateShow />
       <PowerfullConnection />
       <NoCompromise />
+      {/* <TimeToUpgrade /> */}
     </>
   );
 }
