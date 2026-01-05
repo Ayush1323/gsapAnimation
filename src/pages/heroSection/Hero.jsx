@@ -24,7 +24,7 @@ function Hero() {
 
           {/* Button */}
           <div className="flex justify-end w-full">
-            <div className="bg-[#424245B8] text-var(--sk-body-text-color) px-2 py-3 text-[17px] rounded-full flex items-center justify-between gap-8">
+            <div className="bg-[#424245B8] text-var(--sk-body-text-color) px-2 py-2 text-[17px] rounded-full flex items-center justify-between gap-8">
               <div className="font-semibold text-start leading-[1.2] ml-4">
                 From ₹169900.00* <br /> or ₹26650.00/mo. for 6 mo.‡
               </div>

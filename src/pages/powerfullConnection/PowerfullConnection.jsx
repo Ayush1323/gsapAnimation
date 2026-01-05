@@ -50,7 +50,7 @@ function PowerfullConnection() {
       onLeaveBack: () => {
         tl.pause(0);
       },
-      markers: true,
+      // markers: true,
     });
   }, []);
 

@@ -1,7 +1,7 @@
 export const SLIDER_DATA = [
   {
     id: 1,
-    image: "./src/assets/Images/slider/slider-one-one.jpg",
+    video: "./src/assets/Images/slider/slider-video.mp4",
     title: "M5, M4 Pro and M4 Max.<br />One big, powerful family.",
     scale: false,
   },

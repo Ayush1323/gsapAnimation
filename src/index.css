@@ -58,6 +58,13 @@
     #6b95ac 68%,
     #45657d
   );
+  --bg-rainbow-border: linear-gradient(
+    to bottom right,
+    #0894ff 0%,
+    #c959dd 34%,
+    #ff2e54 68%,
+    #ff9004
+  );
 }
 
 @layer utilities {
@@ -106,5 +113,9 @@
   .border-sky-gradient {
     border-image-slice: 1;
     border-image-source: var(--sky-gradient);
+  }
+  .bg-rainbow-border {
+    background: var(--bg-rainbow-border);
+    filter: blur(7px);
   }
 }

@@ -46,7 +46,7 @@ function App() {
       <UltimateShow />
       <PowerfullConnection />
       <NoCompromise />
-      {/* <TimeToUpgrade /> */}
+      <TimeToUpgrade />
     </>
   );
 }
