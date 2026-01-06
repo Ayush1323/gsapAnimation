@@ -65,6 +65,7 @@
     #ff2e54 68%,
     #ff9004
   );
+  --text-green-gradient: linear-gradient(90deg, #35a98a 0%, #6dd400);
 }
 
 @layer utilities {
@@ -116,6 +117,11 @@
   }
   .bg-rainbow-border {
     background: var(--bg-rainbow-border);
-    filter: blur(7px);
+  }
+  .text-green-gradient {
+    background: var(--text-green-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 }

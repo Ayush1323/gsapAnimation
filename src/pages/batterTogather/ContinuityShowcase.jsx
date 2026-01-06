@@ -36,13 +36,10 @@ function ContinuityShowcase({ data }) {
 
       gsap.fromTo(
         contentRef.current,
-        { opacity: 0, y: 40, filter: "blur(8px)" },
+        { opacity: 0 },
         {
           opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
           duration: 1,
-          delay: 0.1,
           ease: "power3.out",
         }
       );
@@ -119,7 +116,7 @@ function ContinuityShowcase({ data }) {
   return (
     <section className="relative bg-black py-20 overflow-hidden">
       {/* MEDIA */}
-      <div className="mb-14 relative rounded-3xl overflow-hidden">
+      <div className="mb-14 relative rounded-3xl overflow-hidden w-[1052px] h-[620px]">
         {isVideo ? (
           <video
             ref={mediaRef}
@@ -201,7 +198,7 @@ function ContinuityShowcase({ data }) {
       </div>
 
       {/* DESCRIPTION */}
-      <div className="text-center max-w-3xl mx-auto">
+      <div ref={contentRef} className="text-center max-w-3xl mx-auto">
         <p className="text-[#86868b] text-[17px] font-semibold leading-[1.2]">
           {activeItem.description}
         </p>

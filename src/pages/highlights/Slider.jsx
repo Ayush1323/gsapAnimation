@@ -82,7 +82,7 @@ function Slider() {
         onEnterBack: playActiveVideo,
         onLeave: pauseAllVideos,
         onLeaveBack: pauseAllVideos,
-        markers: true,
+        // markers: true,
       });
 
       gsap.from(paginationRef.current, {
