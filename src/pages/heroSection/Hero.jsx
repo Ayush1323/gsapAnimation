@@ -1,11 +1,12 @@
 import Button from "../../components/Button";
+import heroVideo from "../../assets/Videos/heroVideo.mp4";
 
 function Hero() {
   return (
     <section className="relative h-[calc(100vh-44px)] overflow-hidden text-white">
       {/* Background Video */}
       <video
-        src="./src/assets/Videos/heroVideo.mp4"
+        src={heroVideo}
         autoPlay
         muted
         playsInline
