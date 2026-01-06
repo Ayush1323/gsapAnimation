@@ -2,6 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import batteryHero from "../../assets/Images/battery-hero.jpg"; // import the image
 
 gsap.registerPlugin(ScrollTrigger);
 function BatteryImage() {
@@ -45,8 +46,8 @@ function BatteryImage() {
     <div className="overflow-hidden">
       <img
         ref={skyRef}
-        src="./src/assets/Images/battery-hero.jpg"
-        alt=""
+        src={batteryHero}
+        alt="Battery Hero"
         className="w-full h-full"
       />
     </div>

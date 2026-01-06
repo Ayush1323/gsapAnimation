@@ -2,6 +2,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import appleLockVideo from "../../assets/Videos/apple-lock.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,12 +31,7 @@ function GreatPowers() {
       ref={poweersRef}
       className="max-w-170 mx-auto flex flex-col justify-center items-center pb-30"
     >
-      <video
-        src="./src/assets/Videos/apple-lock.mp4"
-        ref={poweersRefVideo}
-        muted
-        playsInline
-      />
+      <video src={appleLockVideo} ref={poweersRefVideo} muted playsInline />
       <h3 className="text-[32px] leading-[1.1] text-center mt-4 font-semibold text-[#f5f5f7]">
         Great powers come <br /> with great privacy.
       </h3>

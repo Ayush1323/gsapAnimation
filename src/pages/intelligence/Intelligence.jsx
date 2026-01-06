@@ -2,6 +2,8 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import aiAppleImage from "../../assets/Images/Intelligence/ai_apple_intelligence.jpg";
+
 gsap.registerPlugin(ScrollTrigger);
 
 function Intelligence() {
@@ -47,8 +49,8 @@ function Intelligence() {
       </div>
       <div className="py-25 max-w-280 mx-auto">
         <img
-          src="./src/assets/Images/Intelligence/ai_apple_intelligence.jpg"
-          alt=""
+          src={aiAppleImage}
+          alt="Apple Intelligence"
           className="w-full h-full object-cover"
         />
       </div>

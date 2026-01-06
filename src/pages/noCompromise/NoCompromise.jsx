@@ -1,27 +1,28 @@
 import ContentBlock from "../batterTogather/ContentBlock";
+import securityHero from "../../assets/Images/security_hero__f06nvgwd8eye_large.jpg";
+import touchIdIcon from "../../assets/Images/noCompromise/security_icon_touchid__esgl4qj1ylkm_large.png";
+import findMyIcon from "../../assets/Images/noCompromise/security_icon_findmy__edciyxehqsa6_large.png";
+import fileVaultIcon from "../../assets/Images/noCompromise/security_icon_privacy__vf4d2pc74v6i_large.png";
 
 function NoCompromise() {
   const securityFeatures = [
     {
       id: 1,
-      image:
-        "./src/assets/Images/noCompromise/security_icon_touchid__esgl4qj1ylkm_large.png",
+      image: touchIdIcon,
       title: "Touch ID.",
       description:
         "Unlock your Mac and sign in to apps with your fingertip. The Secure Enclave keeps your fingerprint data safe.",
     },
     {
       id: 2,
-      image:
-        "./src/assets/Images/noCompromise/security_icon_findmy__edciyxehqsa6_large.png",
+      image: findMyIcon,
       title: "Find My.",
       description:
         "Locate your misplaced MacBook Pro and remotely lock or erase it if needed.",
     },
     {
       id: 3,
-      image:
-        "./src/assets/Images/noCompromise/security_icon_privacy__vf4d2pc74v6i_large.png",
+      image: fileVaultIcon,
       title: "FileVault.",
       description:
         "Encrypt and protect your files and data without having to think about it.",
@@ -36,11 +37,7 @@ function NoCompromise() {
         className={"max-w-230! mb-20"}
       />
       <div className="max-w-270 mx-auto">
-        <img
-          src="./src/assets/Images/security_hero__f06nvgwd8eye_large.jpg"
-          alt=""
-          className="w-full h-full object-cover"
-        />
+        <img src={securityHero} alt="" className="w-full h-full object-cover" />
       </div>
       <div className="max-w-230 mx-auto">
         <p className="text-[21px] font-semibold text-[#86868b] leading-[1.2] mt-15">
@@ -55,7 +52,6 @@ function NoCompromise() {
           {securityFeatures.map((item) => (
             <div key={item.id}>
               <img src={item.image} alt={item.title} />
-
               <p className="text-[17px] font-semibold text-[#86868b] leading-[1.2] mt-5">
                 <span className="text-white">{item.title}</span>{" "}
                 {item.description}

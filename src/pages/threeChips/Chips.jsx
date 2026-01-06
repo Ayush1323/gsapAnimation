@@ -7,6 +7,7 @@ import {
   CHIP_INFORMATION,
 } from "../../utils/chips/chipsInformation";
 import StickyHeadingChip from "./StickyHeadingChip";
+import laptopImage from "../../assets/Images/chips/performance_laptop_screen.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -112,11 +113,7 @@ function Chips() {
       >
         <div className="grid grid-cols-[1fr_300px] gap-12 items-start w-full">
           <div className="relative">
-            <img
-              src="./src/assets/Images/chips/performance_laptop_screen.jpg"
-              className="w-full"
-              alt=""
-            />
+            <img src={laptopImage} className="w-full" alt="" />
             {CHEAP_IMAGES.map((src, i) => (
               <img
                 key={i}

@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import displayHero from "../../assets/Images/display_hero.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,7 +100,7 @@ function Delight() {
       <div ref={imageWrapRef} className="relative mx-auto">
         <img
           ref={imageRef}
-          src="./src/assets/Images/display_hero.jpg"
+          src={displayHero}
           alt=""
           className="w-full h-auto block"
         />

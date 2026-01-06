@@ -1,8 +1,8 @@
-export const CHEAP_IMAGES = [
-  "./src/assets/Images/chips/performance_m5_screen.jpg",
-  "./src/assets/Images/chips/performance_m4pro.jpg",
-  "./src/assets/Images/chips/performance_m4max.jpg",
-];
+import performanceM5 from "../../assets/Images/chips/performance_m5_screen.jpg";
+import performanceM4Pro from "../../assets/Images/chips/performance_m4pro.jpg";
+import performanceM4Max from "../../assets/Images/chips/performance_m4max.jpg";
+
+export const CHEAP_IMAGES = [performanceM5, performanceM4Pro, performanceM4Max];
 
 export const CHIP_INFORMATION = [
   {

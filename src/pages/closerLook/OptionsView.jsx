@@ -3,10 +3,11 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger.js";
 import { useRef, useState } from "react";
 import { CLOSER_LOOK_OPTIONS } from "../../utils/closerLook/closerLook";
+import CloserLookVideo from "../../assets/Videos/closerLook.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const DEFAULT_MEDIA = "./src/assets/Videos/closerLook.mp4";
+const DEFAULT_MEDIA = CloserLookVideo;
 
 function OptionsView() {
   const containerRef = useRef(null);

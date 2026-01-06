@@ -1,20 +1,20 @@
+import laptopImage from "../../assets/Videos/flyDragon/laptop.jpg";
+import flyDragonVideo from "../../assets/Videos/flyDragon/fly-dragon.mp4";
+
 function DragonLaptop() {
   return (
     <>
       <div className="bg-black w-full flex justify-center items-center relative">
-        <img
-          src="./src/assets/Videos/flyDragon/laptop.jpg"
-          alt=""
-          className="z-10"
-        />
+        <img src={laptopImage} alt="Laptop" className="z-10" />
         <video
-          src="./src/assets/Videos/flyDragon/fly-dragon.mp4"
+          src={flyDragonVideo}
           autoPlay
           muted
           loop
-          className="absolute  z-20 mix-blend-screen"
+          className="absolute z-20 mix-blend-screen"
         />
       </div>
+
       <div className="w-full flex justify-center items-center my-20">
         <p className="font-semibold text-[#86868b] max-w-220 leading-[1.2] text-[21px] text-center">
           Run graphics-intensive workflows with responsiveness that keeps up

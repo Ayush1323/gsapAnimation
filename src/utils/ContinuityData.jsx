@@ -1,7 +1,29 @@
+// CONTINUITY_DATA assets
+import continuityIphone from "../assets/Images/batterTogather/continuity_iphone_mirroring.jpg";
+import continuityLive from "../assets/Images/batterTogather/continuity_live_activities.jpg";
+import continuityClipboard from "../assets/Images/batterTogather/continuity_universal_clipboard.jpg";
+import continuityPhoneApp from "../assets/Images/batterTogather/continuity_phone_app.jpg";
+import continuityHandoff from "../assets/Images/batterTogather/continuity_handoff.jpg";
+
+// YOUR_AMBISION assets
+import ambitionSTEM from "../assets/Images/yourAmbition/apps_stem__cv8v1aqegtkm_large.jpg";
+import ambitionBusiness from "../assets/Images/yourAmbition/apps_business__enlx43ymqt2e_large.jpg";
+import ambitionDesign from "../assets/Images/yourAmbition/apps_design__b2qpemopn7py_large.jpg";
+import ambition3D from "../assets/Images/yourAmbition/apps_3d__chyj4vr46ziq_large.jpg";
+import ambitionMusic from "../assets/Images/yourAmbition/apps_music__b3phdafe8idy_large.jpg";
+import ambitionVideo from "../assets/Images/yourAmbition/apps_video__gjy8wlktqrm2_large.jpg";
+import ambitionGaming from "../assets/Images/yourAmbition/apps_gaming__b569p3rchseq_large.jpg";
+import ambitionPhoto from "../assets/Images/yourAmbition/apps_photos__cfeebrp7pnv6_large.jpg";
+import ambitionCoding from "../assets/Images/yourAmbition/apps_coding__e90b06g5qmqa_large.jpg";
+
+// UTIMATE_SHOW assets
+import ultimateCentreStage from "../assets/Images/ultimateShow/women-vc.mp4";
+import ultimateDeskView from "../assets/Images/ultimateShow/camera_desk_view__brd7eu42taj6_large.jpg";
+
 export const CONTINUITY_DATA = [
   {
     tab: "iPhone Mirroring",
-    image: "./src/assets/Images/batterTogather/continuity_iphone_mirroring.jpg",
+    image: continuityIphone,
     title: "iPhone Mirroring",
     description:
       "See and use your iPhone from your Mac with iPhone Mirroring. Even if you’re charging your phone in another room, you can still access all your favourite apps.10",
@@ -9,7 +31,7 @@ export const CONTINUITY_DATA = [
   },
   {
     tab: "Live Activities",
-    image: "./src/assets/Images/batterTogather/continuity_live_activities.jpg",
+    image: continuityLive,
     title: "Live Activities",
     description:
       "Live Activities from your iPhone now appear on your Mac. So you don’t have to reach for your iPhone to stay in the know.10",
@@ -17,8 +39,7 @@ export const CONTINUITY_DATA = [
   },
   {
     tab: "Universal Clipboard",
-    image:
-      "./src/assets/Images/batterTogather/continuity_universal_clipboard.jpg",
+    image: continuityClipboard,
     title: "Universal Clipboard",
     description:
       "Copy images, video or text from an app on your iPhone or iPad. Then paste into another app on your nearby Mac — or vice versa. No extra steps. It’s that easy.",
@@ -26,7 +47,7 @@ export const CONTINUITY_DATA = [
   },
   {
     tab: "Phone app",
-    image: "./src/assets/Images/batterTogather/continuity_phone_app.jpg",
+    image: continuityPhoneApp,
     title: "Phone app",
     description:
       "Make and take calls right from your Mac, and access Recents, Contacts and Voicemail. You’ll never miss a call, even if your iPhone is buried deep in your backpack.9",
@@ -34,7 +55,7 @@ export const CONTINUITY_DATA = [
   },
   {
     tab: "Handoff",
-    image: "./src/assets/Images/batterTogather/continuity_handoff.jpg",
+    image: continuityHandoff,
     title: "Handoff",
     description:
       "Start an email on your iPhone and finish it on your Mac. With Handoff, you can seamlessly pass what you’re doing from iPhone to Mac — or from Mac to iPhone.50",
@@ -45,7 +66,7 @@ export const CONTINUITY_DATA = [
 export const YOUR_AMBISION = [
   {
     tab: "STEM",
-    image: "./src/assets/Images/yourAmbition/apps_stem__cv8v1aqegtkm_large.jpg",
+    image: ambitionSTEM,
     title: "STEM",
     description: (
       <>
@@ -64,8 +85,7 @@ export const YOUR_AMBISION = [
   },
   {
     tab: "Business",
-    image:
-      "./src/assets/Images/yourAmbition/apps_business__enlx43ymqt2e_large.jpg",
+    image: ambitionBusiness,
     title: "Business",
     description: (
       <>
@@ -83,8 +103,7 @@ export const YOUR_AMBISION = [
   },
   {
     tab: "Graphic design",
-    image:
-      "./src/assets/Images/yourAmbition/apps_design__b2qpemopn7py_large.jpg",
+    image: ambitionDesign,
     title: "Graphic design",
     description: (
       <>
@@ -102,7 +121,7 @@ export const YOUR_AMBISION = [
   },
   {
     tab: "3D animation and design",
-    image: "./src/assets/Images/yourAmbition/apps_3d__chyj4vr46ziq_large.jpg",
+    image: ambition3D,
     title: "3D animation and design",
     description: (
       <>
@@ -120,8 +139,7 @@ export const YOUR_AMBISION = [
   },
   {
     tab: "Music production",
-    image:
-      "./src/assets/Images/yourAmbition/apps_music__b3phdafe8idy_large.jpg",
+    image: ambitionMusic,
     title: "Music production",
     description: (
       <>
@@ -139,8 +157,7 @@ export const YOUR_AMBISION = [
   },
   {
     tab: "Video editing",
-    image:
-      "./src/assets/Images/yourAmbition/apps_video__gjy8wlktqrm2_large.jpg",
+    image: ambitionVideo,
     title: "Video editing",
     description: (
       <>
@@ -158,8 +175,7 @@ export const YOUR_AMBISION = [
   },
   {
     tab: "Gaming",
-    image:
-      "./src/assets/Images/yourAmbition/apps_gaming__b569p3rchseq_large.jpg",
+    image: ambitionGaming,
     title: "Gaming",
     description: (
       <>
@@ -177,8 +193,7 @@ export const YOUR_AMBISION = [
   },
   {
     tab: "Photo editing",
-    image:
-      "./src/assets/Images/yourAmbition/apps_photos__cfeebrp7pnv6_large.jpg",
+    image: ambitionPhoto,
     title: "Photo editing",
     description: (
       <>
@@ -198,8 +213,7 @@ export const YOUR_AMBISION = [
   },
   {
     tab: "Coding",
-    image:
-      "./src/assets/Images/yourAmbition/apps_coding__e90b06g5qmqa_large.jpg",
+    image: ambitionCoding,
     title: "Coding",
     description: (
       <>
@@ -219,7 +233,7 @@ export const YOUR_AMBISION = [
 export const UTIMATE_SHOW = [
   {
     tab: "Centre Stage",
-    image: "./src/assets/Images/ultimateShow/women-vc.mp4",
+    image: ultimateCentreStage,
     title: "Centre Stage",
     description:
       "Centre Stage keeps you in frame during video calls, even as you move around or when more people join your frame.",
@@ -227,8 +241,7 @@ export const UTIMATE_SHOW = [
   },
   {
     tab: "Desk View",
-    image:
-      "./src/assets/Images/ultimateShow/camera_desk_view__brd7eu42taj6_large.jpg",
+    image: ultimateDeskView,
     title: "Desk View",
     description:
       "Desk View lets you share your workspace, adding a whole new dimension to make your video calls more engaging.",

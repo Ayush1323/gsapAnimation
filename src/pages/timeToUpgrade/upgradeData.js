@@ -1,15 +1,19 @@
+import heroBgImage from "../../assets/Images/helmet-image.jpeg";
+import appleIntelligenceIcon from "../../assets/Images/icon_apple_intelligence__f2cdmwimgiq2_large.png";
+import xdrDisplayIcon from "../../assets/Images/icon_xdr_display__yb78ajay2qaa_large.png";
+
 export const upgradeData = {
   macbook14: {
     label: "14″ MacBook Pro (M5)",
     subtitle: "Here’s what you get with the new 14″ MacBook Pro with M5.",
     cards: {
       hero: {
-        bgImage: "./src/assets/Images/helmet-image.jpeg",
+        bgImage: heroBgImage,
         icon: "https://www.apple.com/v/macbook-pro/av/images/overview/upgraders/icon_sparkles__crqv6fji0x26_large.png",
         text: "Fly through demanding AI tasks up to 86x faster.1",
       },
       intelligence: {
-        icon: "./src/assets/Images/icon_apple_intelligence__f2cdmwimgiq2_large.png",
+        icon: appleIntelligenceIcon,
         title: "Built for",
         highlight: "Apple Intelligence.",
       },
@@ -19,7 +23,7 @@ export const upgradeData = {
         sub: "(Up to 24 hours total.)",
       },
       display: {
-        icon: "./src/assets/Images/icon_xdr_display__yb78ajay2qaa_large.png",
+        icon: xdrDisplayIcon,
         text: "A stunning Liquid Retina XDR display.",
       },
     },
@@ -30,12 +34,12 @@ export const upgradeData = {
     subtitle: "Here’s what you get with the new 16″ MacBook Pro with M5.",
     cards: {
       hero: {
-        bgImage: "./src/assets/Images/helmet-image.jpeg",
+        bgImage: heroBgImage,
         icon: "https://www.apple.com/v/macbook-pro/av/images/overview/upgraders/icon_sparkles__crqv6fji0x26_large.png",
         text: "Extreme performance for large workflows.",
       },
       intelligence: {
-        icon: "./src/assets/Images/icon_apple_intelligence__f2cdmwimgiq2_large.png",
+        icon: appleIntelligenceIcon,
         title: "Designed for",
         highlight: "Next-gen AI.",
       },
@@ -45,7 +49,7 @@ export const upgradeData = {
         sub: "(Up to 26 hours total.)",
       },
       display: {
-        icon: "./src/assets/Images/icon_xdr_display__yb78ajay2qaa_large.png",
+        icon: xdrDisplayIcon,
         text: "Even larger Liquid Retina XDR display.",
       },
     },

@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef, useState } from "react";
 import PauseIcon from "../../assets/Icons/PauseIcon";
 import PlayIcon from "../../assets/Icons/PlayIcon";
+import wavesVideo from "../../assets/Videos/waves-video.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,7 +57,7 @@ function FreshFaced() {
         >
           <video
             ref={videoRef}
-            src="./src/assets/Videos/waves-video.mp4"
+            src={wavesVideo}
             muted
             playsInline
             loop

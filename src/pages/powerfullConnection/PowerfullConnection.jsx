@@ -3,6 +3,8 @@ import ContentBlock from "../batterTogather/ContentBlock";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import connection1 from "../../assets/Images/powerFullConnection/connections_hw_1__rboovclqj6im_large.jpg";
+import connection2 from "../../assets/Images/powerFullConnection/connections_hw_2__bwc0c562jaia_large.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,16 +81,10 @@ function PowerfullConnection() {
         className="flex flex-col gap-20 max-w-210 mx-auto pt-20"
       >
         <div ref={imgLeftRef} className="w-450">
-          <img
-            src="src\assets\Images\powerFullConnection\connections_hw_1__rboovclqj6im_large.jpg"
-            alt=""
-          />
+          <img src={connection1} alt="" />
         </div>
         <div ref={imgRightRef} className="w-450 self-end">
-          <img
-            src="src\assets\Images\powerFullConnection\connections_hw_2__bwc0c562jaia_large.jpg"
-            alt=""
-          />
+          <img src={connection2} alt="" />
         </div>
       </div>
 
