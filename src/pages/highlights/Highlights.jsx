@@ -14,14 +14,15 @@ const Highlights = () => {
     () => {
       gsap.from(textRef.current, {
         rotationX: -10,
-        transformOrigin: "10% 10% -400px",
+        y: 50,
         opacity: 0,
         duration: 1.5,
         ease: "power3.out",
         stagger: 0.25,
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 50%",
+          start: "top 80%",
+          markers: true,
         },
       });
     },
@@ -29,7 +30,7 @@ const Highlights = () => {
   );
 
   return (
-    <section ref={sectionRef} className="bg-[#1d1d1f] pt-40 pb-1 relative">
+    <section ref={sectionRef} className="bg-[#1d1d1f] pt-30 pb-1 relative">
       <div
         ref={(el) => (textRef.current[0] = el)}
         className="max-w-315 mx-auto text-white text-[56px] font-semibold leading-tight"

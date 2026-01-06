@@ -20,7 +20,6 @@ function CloserLook() {
         scrollTrigger: {
           trigger: closerSectionref.current,
           start: "top 80%",
-        //   markers: true,
         },
       });
     },

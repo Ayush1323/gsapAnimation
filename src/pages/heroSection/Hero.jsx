@@ -14,11 +14,11 @@ function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-420 mx-auto h-full flex items-end pb-4">
+      <div className="relative z-10 max-w-430 mx-auto h-full flex items-end pb-4">
         <div className="w-full flex items-end justify-between pb-16 px-6">
           {/* Text */}
-          <h1 className="font-semibold max-w-200">
-            <span className="text-[56px] leading-[1.1] inline-block bg-[linear-gradient(90deg,var(--color-apple-1),var(--color-apple-2)_31%,var(--color-apple-3)_68%,var(--color-apple-4))] bg-clip-text text-transparent">
+          <h1 className=" max-w-200">
+            <span className="text-[56px]  inline-block bg-[linear-gradient(90deg,var(--color-apple-1),var(--color-apple-2)_31%,var(--color-apple-3)_68%,var(--color-apple-4))] bg-clip-text text-transparent tracking-tighter font-semibold">
               MacBook Pro 14″ now supercharged by M5.
             </span>
           </h1>

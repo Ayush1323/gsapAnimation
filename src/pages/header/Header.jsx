@@ -29,7 +29,7 @@ function Header() {
           showOverlay ? "bg-[#161617]" : "bg-black"
         }`}
       >
-        <div className="max-w-250 m-auto flex items-center justify-between px-4 text-[12px]">
+        <div className="max-w-260 m-auto flex items-center justify-between px-4 text-[12px]">
           {HEADER_VALUE.map((item) => (
             <div
               key={item.id}

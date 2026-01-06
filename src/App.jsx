@@ -32,7 +32,7 @@ function App() {
       <ScrollingFive />
       <DragonLaptop />
       <ThreeChips />
-      <BuiltForAi />
+      {/*<BuiltForAi />
       <BornToRun />
       <Intelligence />
       <GreatPowers />
@@ -46,7 +46,7 @@ function App() {
       <UltimateShow />
       <PowerfullConnection />
       <NoCompromise />
-      <TimeToUpgrade />
+      <TimeToUpgrade /> */}
     </>
   );
 }

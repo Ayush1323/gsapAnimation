@@ -1,13 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  font-family: SF Pro Text, SF Pro Icons, Helvetica Neue, Helvetica, Arial,
-    sans-serif;
+  font-family: "Inter", "Roboto", -apple-system, Arial, sans-serif;
   background-color: black;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.0714285714;
+  letter-spacing: -0.005em;
+  background-color: black;
 }
 
 @theme {

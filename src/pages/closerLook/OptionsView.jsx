@@ -71,14 +71,16 @@ function OptionsView() {
 
     tl.to(mediaRef.current, {
       scale: 0.95,
+      x: -100,
       opacity: 0,
-      duration: 0.4,
+      duration: 0.6,
       ease: "power2.in",
       onComplete: () => {
         setMediaIndex(nextMedia);
       },
     }).to(mediaRef.current, {
       scale: 1,
+      x: 0,
       opacity: 1,
       duration: 0.6,
       ease: "power2.out",
@@ -320,94 +322,119 @@ function OptionsView() {
                 <line x1="6" y1="6" x2="18" y2="18"></line>
               </svg>
             </button>
-
-            {/* Navigation Buttons - Centered Vertically on Right Side */}
-            <div className="absolute left-6 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-30">
-              <button
-                ref={prevBtnRef}
-                onClick={handlePrev}
-                disabled={isPrevDisabled}
-                className={`w-11 h-11 rounded-full backdrop-blur-md text-white cursor-pointer flex items-center justify-center transition-all ${
-                  isPrevDisabled
-                    ? "bg-white/5 opacity-30 cursor-not-allowed"
-                    : "bg-white/10 hover:scale-110 hover:bg-white/20 active:scale-95"
-                }`}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="18 15 12 9 6 15"></polyline>
-                </svg>
-              </button>
-
-              <button
-                ref={nextBtnRef}
-                onClick={handleNext}
-                disabled={isNextDisabled}
-                className={`w-11 h-11 rounded-full backdrop-blur-md text-white cursor-pointer flex items-center justify-center transition-all ${
-                  isNextDisabled
-                    ? "bg-white/5 opacity-30 cursor-not-allowed"
-                    : "bg-white/10 hover:scale-110 hover:bg-white/20 active:scale-95"
-                }`}
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </button>
-            </div>
           </>
         )}
       </div>
 
-      <div
-        ref={itemsRef}
-        className="absolute top-1/2 left-30 -translate-y-1/2 flex flex-col gap-4 z-20"
-      >
-        {CLOSER_LOOK_OPTIONS.map((item, index) => (
-          <div
-            key={item.id}
-            onClick={() => handleClick(index)}
-            className={`${
-              expandedIndex === index
-                ? "bg-[#272729]/60 backdrop-blur-2xl p-8"
-                : "bg-[#272729] p-4"
-            } rounded-4xl w-fit text-white cursor-pointer overflow-hidden transition-all duration-300`}
-          >
-            {expandedIndex !== index && (
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 border border-white rounded-full flex items-center justify-center transition-transform hover:scale-110">
-                  +
-                </div>
-                <div>{item.label}</div>
-              </div>
-            )}
-
-            <div
-              ref={(el) => (contentRefs.current[index] = el)}
-              className={`w-100 ${
-                expandedIndex === index ? "block" : "hidden"
+      <div className="flex">
+        {" "}
+        {isActive && (
+          <div className="absolute left-6 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-30">
+            <button
+              ref={prevBtnRef}
+              onClick={handlePrev}
+              disabled={isPrevDisabled}
+              className={`w-11 h-11 rounded-full backdrop-blur-md text-white cursor-pointer flex items-center justify-center transition-all ${
+                isPrevDisabled
+                  ? "bg-white/5 opacity-30 cursor-not-allowed"
+                  : "bg-white/10 hover:scale-110 hover:bg-white/20 active:scale-95"
               }`}
             >
-              {item.content}
-            </div>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="18 15 12 9 6 15"></polyline>
+              </svg>
+            </button>
+
+            <button
+              ref={nextBtnRef}
+              onClick={handleNext}
+              disabled={isNextDisabled}
+              className={`w-11 h-11 rounded-full backdrop-blur-md text-white cursor-pointer flex items-center justify-center transition-all ${
+                isNextDisabled
+                  ? "bg-white/5 opacity-30 cursor-not-allowed"
+                  : "bg-white/10 hover:scale-110 hover:bg-white/20 active:scale-95"
+              }`}
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
           </div>
-        ))}
+        )}
+        <div
+          ref={itemsRef}
+          className="absolute top-1/2 left-30 -translate-y-1/2 flex flex-col gap-4 z-20"
+        >
+          {CLOSER_LOOK_OPTIONS.map((item, index) => (
+            <div
+              key={item.id}
+              onClick={() => handleClick(index)}
+              className={`${
+                expandedIndex === index
+                  ? "bg-[#272729]/60 backdrop-blur-2xl p-8"
+                  : "bg-[#272729] p-4"
+              } rounded-4xl w-fit text-white cursor-pointer overflow-hidden transition-all duration-300`}
+            >
+              {expandedIndex !== index && (
+                <div className="flex items-center gap-2">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="text-white"
+                  >
+                    {/* Outer circle */}
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      className="opacity-90"
+                    />
+
+                    {/* Plus icon */}
+                    <path
+                      fill="currentColor"
+                      d="M12 7.5c.55 0 1 .45 1 1V11h2.5c.55 0 1 .45 1 1s-.45 1-1 1H13v2.5c0 .55-.45 1-1 1s-1-.45-1-1V13H8.5c-.55 0-1-.45-1-1s.45-1 1-1H11V8.5c0-.55.45-1 1-1z"
+                    />
+                  </svg>
+
+                  <div>{item.label}</div>
+                </div>
+              )}
+
+              <div
+                ref={(el) => (contentRefs.current[index] = el)}
+                className={`w-100 ${
+                  expandedIndex === index ? "block" : "hidden"
+                }`}
+              >
+                {item.content}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

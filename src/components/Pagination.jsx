@@ -100,7 +100,7 @@ function Pagination({
             <button
               key={index}
               onClick={() => handleBarClick(index)}
-              className={`relative overflow-hidden rounded-full transition-all
+              className={`relative overflow-hidden rounded-full transition-all cursor-pointer hover:bg-white  
                 ${
                   activeIndex === index
                     ? "w-12 h-2 bg-white/80"
@@ -117,15 +117,15 @@ function Pagination({
 
         <div
           onClick={handlePlayPause}
-          className="py-4 px-6 rounded-full bg-black/40 backdrop-blur-lg cursor-pointer"
+          className="h-14 w-14 rounded-full bg-black/40 backdrop-blur-lg cursor-pointer flex items-center justify-center"
         >
-          <button className="text-white w-6 h-6 flex items-center justify-center cursor-pointer">
+          <button className="text-white  flex items-center justify-center cursor-pointer">
             {showRestart ? (
-              <RestartIcon />
+              <RestartIcon size={26} />
             ) : isPlaying ? (
-              <PauseIcon />
+              <PauseIcon size={30} />
             ) : (
-              <PlayIcon />
+              <PlayIcon size={36} />
             )}
           </button>
         </div>

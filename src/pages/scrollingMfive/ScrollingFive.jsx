@@ -18,6 +18,7 @@ function ScrollingFive() {
   const paragraphRef = useRef(null);
   const paragraphRef2 = useRef(null);
   const paragraphRef3 = useRef(null);
+  const buttonRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
   const togglePlay = () => {
@@ -38,6 +39,9 @@ function ScrollingFive() {
 
     const mainVideo = videoRef.current;
     const innerVideo = videoRefInner.current;
+    gsap.set(buttonRef.current, {
+      opacity: 1,
+    });
 
     innerVideo.pause();
 
@@ -64,6 +68,12 @@ function ScrollingFive() {
       ease: "none",
     });
 
+    tl.from(buttonRef.current, {
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+
     tl.fromTo(
       svgRef.current,
       {
@@ -79,6 +89,12 @@ function ScrollingFive() {
         ease: "power2.out",
       }
     );
+
+    tl.to(buttonRef.current, {
+      opacity: 0,
+      duration: 0.5,
+      ease: "power2.out",
+    });
 
     tl.to(innerVideo, {
       opacity: 1,
@@ -196,6 +212,7 @@ function ScrollingFive() {
 
         {/* Play / Pause Button */}
         <button
+          ref={buttonRef}
           onClick={togglePlay}
           className="absolute top-5 right-5 z-10 bg-black/40 backdrop-blur-md p-2.5 rounded-full hover:bg-black/60 transition cursor-pointer"
         >
