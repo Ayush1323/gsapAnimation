@@ -13,15 +13,10 @@ function NewAnimation() {
     const handleMouseMove = (e) => {
       const now = Date.now();
 
-      // calculate X velocity
       const dx = Math.abs(e.clientX - lastXRef.current);
       lastXRef.current = e.clientX;
 
-      // dynamic throttle based on speed
-      const throttle =
-        dx > 40
-          ? 50 // fast movement
-          : 440; // slow movement
+      const throttle = dx > 40 ? 50 : 440;
 
       if (now - lastTimeRef.current < throttle) return;
       lastTimeRef.current = now;
@@ -40,7 +35,6 @@ function NewAnimation() {
 
       const tl = gsap.timeline();
 
-      // 1️⃣ pop + spin
       tl.to(item, {
         opacity: 1,
         scale: 1,
@@ -50,15 +44,14 @@ function NewAnimation() {
         ease: "back.out(1.7)",
       });
 
-      // 2️⃣ short pause
       tl.to(item, {
         duration: 0.3,
       });
 
-      // 3️⃣ fall & fade
       tl.to(item, {
         y: "+=400",
         scale: 0.8,
+        rotate: "+=360",
         opacity: 0,
         duration: 1.2,
         ease: "power3.in",
