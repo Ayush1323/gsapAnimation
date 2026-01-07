@@ -1,5 +1,5 @@
-import horseMan from "../../assets/Images/bornToRun/horse-man.jpg";
 import helmetMen from "../../assets/Images/bornToRun/helmet-men.jpg";
+import helmetWomanVideo from "../../assets/Images/bornToRun/helmet-women.mp4";
 
 export const CARDS_DATA = [
   {
@@ -7,7 +7,7 @@ export const CARDS_DATA = [
     text: `Mac is optimised to handle the world’s most advanced AI apps.
 Run image generation apps like DiffusionBee, LLM apps like Msty Studio
 and LM Studio and video enhancement apps like Topaz Video.`,
-    image: horseMan,
+    video: helmetWomanVideo,
     imageAlign: "start",
   },
   {

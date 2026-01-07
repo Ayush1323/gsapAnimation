@@ -145,7 +145,7 @@ function Chips() {
         ref={sectionRef}
         className="h-screen max-w-350 mx-[10%] flex items-end"
       >
-        <div className="grid grid-cols-[1fr_300px] gap-x-12 gap-y-20 items-start w-full">
+        <div className="grid grid-cols-[1fr_300px] gap-x-12 gap-y-20 items-start w-full mb-10">
           <div className="relative">
             <img src={laptopImage} className="w-full" alt="" />
             {CHEAP_IMAGES.map((src, i) => (

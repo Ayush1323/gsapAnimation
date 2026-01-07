@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 function BornToRun() {
   const cardRef = useRef(null);
+  const manVideoRef = useRef(null);
 
   useGSAP(
     () => {
@@ -19,8 +20,13 @@ function BornToRun() {
         ease: "power3.out",
         scrollTrigger: {
           trigger: cardRef.current,
-          start: "top 60%",
-          // markers: true,
+          start: "top 70%",
+          markers: true,
+          onEnter: () => {
+            if (manVideoRef.current) {
+              manVideoRef.current.play();
+            }
+          },
         },
       });
     },
@@ -30,11 +36,11 @@ function BornToRun() {
   return (
     <div
       ref={cardRef}
-      className="grid grid-cols-2 max-w-315 mx-auto gap-4 pt-35 pb-25 items-center"
+      className="grid grid-cols-2 max-w-315 mx-auto gap-5 pb-25 items-center"
     >
-      {CARDS_DATA.map(({ title, text, image, imageAlign }, index) => (
+      {CARDS_DATA.map(({ title, text, image, video, imageAlign }, index) => (
         <div key={index} className="rounded-3xl bg-[#1d1d1f] overflow-hidden">
-          <p className="text-[19px] font-semibold text-[#86868b] p-8">
+          <p className="text-[19px] font-semibold text-[#86868b] p-8 leading-[1.2]">
             <span className="text-[#f5f5f7]">{title}</span> {text}
           </p>
 
@@ -43,7 +49,11 @@ function BornToRun() {
               imageAlign === "end" ? "justify-end" : "justify-start"
             }`}
           >
-            <img src={image} alt={title} />
+            {video ? (
+              <video ref={manVideoRef} src={video} autoPlay muted playsInline />
+            ) : (
+              <img src={image} alt={title} />
+            )}
           </div>
         </div>
       ))}

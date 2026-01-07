@@ -22,7 +22,7 @@ const Highlights = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 80%",
-          markers: true,
+          // markers: true,
         },
       });
     },

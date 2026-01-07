@@ -32,9 +32,9 @@ function App() {
       <ScrollingFive />
       <DragonLaptop />
       <ThreeChips />
-      {/*<BuiltForAi />
+      <BuiltForAi />
       <BornToRun />
-      <Intelligence />
+      {/* <Intelligence />
       <GreatPowers />
       <BatteryLife />
       <FreshFaced />
