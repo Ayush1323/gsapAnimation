@@ -8,7 +8,9 @@ import {
 } from "../../utils/chips/chipsInformation";
 import StickyHeadingChip from "./StickyHeadingChip";
 import laptopImage from "../../assets/Images/chips/performance_laptop_screen.jpg";
-
+import iconM5 from "../../assets/Images/chips/performance_icon_m5__dk75oifli58i_large.png";
+import iconM4Pro from "../../assets/Images/chips/performance_icon_m4pro__ez04pndyaq6a_large.png";
+import iconM4Max from "../../assets/Images/chips/performance_icon_m4max__getmf50wffqm_large.png";
 gsap.registerPlugin(ScrollTrigger);
 
 function Chips() {
@@ -16,7 +18,11 @@ function Chips() {
   const imagesRef = useRef([]);
   const contentsRef = useRef([]);
   const chipsRef = useRef([]);
-
+  const chips = [
+    { icon: iconM5, alt: "M5 chip" },
+    { icon: iconM4Pro, alt: "M4 Pro chip" },
+    { icon: iconM4Max, alt: "M4 Max chip" },
+  ];
   useGSAP(
     () => {
       gsap.set(imagesRef.current, { opacity: 0 });
@@ -35,22 +41,23 @@ function Chips() {
       });
 
       CHEAP_IMAGES.forEach((_, i) => {
-        tl.to(imagesRef.current[i], {
-          opacity: 1,
-          duration: 1.5,
-          ease: "power2.out",
-        });
-
         tl.to(
-          contentsRef.current[i],
+          imagesRef.current[i],
           {
             opacity: 1,
-            y: 0,
             duration: 1.5,
             ease: "power2.out",
           },
           "<"
         );
+
+        tl.to(contentsRef.current[i], {
+          opacity: 1,
+          stagger: 0.2,
+          y: 0,
+          duration: 1.5,
+          ease: "power2.out",
+        });
 
         tl.to({}, { duration: 1.5 });
 
@@ -127,13 +134,23 @@ function Chips() {
 
           <div className="flex flex-col gap-6 mt-20">
             <div className="flex gap-4">
-              {["M5", "M4 Pro", "M4 Max"].map((label, i) => (
+              {chips.map((chip, i) => (
                 <div
                   key={i}
                   ref={(el) => (chipsRef.current[i] = el)}
-                  className="w-16 h-16 rounded-2xl bg-[#333336] flex items-center justify-center text-[#f5f5f7] font-semibold transition-all duration-300"
+                  className="
+      w-16 h-16
+      rounded-2xl
+      bg-[#333336]
+      flex items-center justify-center
+      transition-all duration-300
+    "
                 >
-                  {label}
+                  <img
+                    src={chip.icon}
+                    alt={chip.alt}
+                    className="object-contain select-none pointer-events-none"
+                  />
                 </div>
               ))}
             </div>

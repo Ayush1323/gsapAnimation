@@ -35,8 +35,8 @@
   /* New gradient added */
   --gradient-pink-purple: linear-gradient(90deg, #ffe1fc 7%, #c683ef 79%);
   --gradient-blue-cyan: linear-gradient(90deg, #e1e5ff 7%, #83a0ef 80%);
-  --gradient-m4-pro: linear-gradient(135deg, #1a4fff, #3fa1ff);
-  --gradient-m4-max: linear-gradient(135deg, #6c4fff, #c683ef);
+  --gradient-m4-pro: linear-gradient(45deg, #9bcce1, #4271dc, #0d309c, #030a61);
+  --gradient-m4-max: linear-gradient(45deg, #ccb8d7, #a477c3, #8457bb, #1b0c53);
 
   --sk-body-text-color: rgb(245, 245, 247);
   --global-section-background-color-alt-dark: rgb(29, 29, 31);
@@ -64,11 +64,18 @@
     #ff9004
   );
   --text-green-gradient: linear-gradient(90deg, #35a98a 0%, #6dd400);
+  --bg-m5: linear-gradient(
+    45deg,
+    rgb(191, 235, 224),
+    rgb(42, 186, 158),
+    rgb(23, 140, 155),
+    rgb(18, 56, 90)
+  );
 }
 
 @layer utilities {
   .bg-apple-chip {
-    background: var(--gradient-apple-chip);
+    background: var(--bg-m5);
   }
   .bg-m4-pro {
     background: var(--gradient-m4-pro);
