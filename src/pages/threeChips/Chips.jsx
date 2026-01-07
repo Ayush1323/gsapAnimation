@@ -26,9 +26,10 @@ function Chips() {
   useGSAP(
     () => {
       gsap.set(imagesRef.current, { opacity: 0 });
-      gsap.set(contentsRef.current, { opacity: 0, y: 50 });
+      gsap.set(contentsRef.current, { opacity: 0 });
       gsap.set(imagesRef.current[0], { opacity: 1 });
-      gsap.set(contentsRef.current[0], { opacity: 1, y: 0 });
+      gsap.set(contentsRef.current[0], { opacity: 1 });
+      gsap.set(contentsRef.current[0].children, { opacity: 1 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -41,6 +42,8 @@ function Chips() {
       });
 
       CHEAP_IMAGES.forEach((_, i) => {
+        tl.addLabel(`chip${i}`);
+
         tl.to(
           imagesRef.current[i],
           {
@@ -48,29 +51,53 @@ function Chips() {
             duration: 1.5,
             ease: "power2.out",
           },
+          i === 0 ? "<" : "-=1"
+        );
+
+        tl.to(contentsRef.current[i].children, {
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          stagger: {
+            each: 0.15,
+            from: "start",
+          },
+        });
+
+        tl.to(
+          contentsRef.current[i],
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            ease: "power2.out",
+          },
           "<"
         );
 
-        tl.to(contentsRef.current[i], {
-          opacity: 1,
-          stagger: 0.2,
-          y: 0,
-          duration: 1.5,
-          ease: "power2.out",
-        });
-
-        tl.to({}, { duration: 1.5 });
-
         if (i !== CHEAP_IMAGES.length - 1) {
-          tl.to(imagesRef.current[i], {
-            opacity: 0,
-            duration: 1.2,
-            ease: "power2.in",
-          });
           tl.to(
-            contentsRef.current[i],
-            { opacity: 0, y: -30, duration: 1.2, ease: "power2.in" },
-            "<"
+            imagesRef.current[i],
+            {
+              opacity: 0,
+              duration: 1.2,
+              ease: "power2.in",
+            },
+            "+=0.3"
+          );
+
+          tl.to(
+            contentsRef.current[i].children,
+            {
+              opacity: 0,
+              duration: 1,
+              ease: "power3.in",
+              stagger: {
+                each: 0.12,
+                from: "end",
+              },
+            },
+            "-=0.8"
           );
         }
       });
@@ -116,9 +143,9 @@ function Chips() {
     <>
       <section
         ref={sectionRef}
-        className="h-screen max-w-350 mx-auto flex items-center"
+        className="h-screen max-w-350 mx-[10%] flex items-end"
       >
-        <div className="grid grid-cols-[1fr_300px] gap-12 items-start w-full">
+        <div className="grid grid-cols-[1fr_300px] gap-x-12 gap-y-20 items-start w-full">
           <div className="relative">
             <img src={laptopImage} className="w-full" alt="" />
             {CHEAP_IMAGES.map((src, i) => (

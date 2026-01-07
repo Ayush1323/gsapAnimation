@@ -1,5 +1,3 @@
-import clsx from "clsx";
-import Button from "../../components/Button";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,7 +18,7 @@ function StickyHeadingChip() {
         scrollTrigger: {
           trigger: stickyRef.current,
           start: "top 80%",
-        //   markers: true,
+          //   markers: true,
         },
       });
 
@@ -54,7 +52,20 @@ function StickyHeadingChip() {
         Explore the family of chips
       </span>
 
-      <Button className={clsx("ml-4 h-10 w-10 text-3xl!")}>+</Button>
+      <button className="ml-4 h-10 w-10 rounded-full bg-blue-500 flex items-center justify-center">
+        <svg
+          className="w-5 h-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <line x1="12" y1="5" x2="12" y2="19" />
+          <line x1="5" y1="12" x2="19" y2="12" />
+        </svg>
+      </button>
     </div>
   );
 }
