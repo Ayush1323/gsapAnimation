@@ -29,7 +29,7 @@ function YourAmbitions() {
   );
 
   return (
-    <div className="pt-40" ref={continuityRef}>
+    <div className="py-30" ref={continuityRef}>
       <ContentBlock
         eyebrow="Apps"
         title="Your ambitions. There’s an app for that."

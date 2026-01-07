@@ -23,7 +23,7 @@ function PowerfullConnection() {
       imgLeftRef.current,
       {
         x: 0,
-        duration: 10,
+        duration: 5,
         ease: "power3.out",
       },
       0
@@ -31,7 +31,7 @@ function PowerfullConnection() {
       imgRightRef.current,
       {
         x: 0,
-        duration: 10,
+        duration: 5,
         ease: "power3.out",
       },
       0
@@ -57,13 +57,13 @@ function PowerfullConnection() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden">
+    <div className="w-full overflow-hidden py-30">
       <ContentBlock
         eyebrow="Ports and Connectivity"
         title="Make powerful connections."
         description={
           <>
-            <p>
+            <p className="leading-[1.2]">
               MacBook Pro packs an array of ports for connecting high-speed
               peripherals, driving high-resolution displays, or directly
               offloading SDXC cards.{" "}
@@ -71,7 +71,13 @@ function PowerfullConnection() {
                 Models with the M5 chip feature Thunderbolt 4. Models with M4
                 Pro or M4 Max feature Thunderbolt 5,
               </span>{" "}
-              which offers transfer speeds of up to 120Gb/s.51
+              which offers transfer speeds of up to 120Gb/s.
+              <sup className="underline text-xs">51</sup>
+            </p>
+            <p className="mt-4 leading-[1.2]">
+              MacBook Pro also supports both Wi-Fi 6E
+              <sup className="underline text-xs">52</sup> and Bluetooth 5.3 to
+              connect to the internet and your wireless devices.
             </p>
           </>
         }
@@ -88,7 +94,7 @@ function PowerfullConnection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 max-w-230 mx-auto gap-10 pt-25 pb-25">
+      <div className="grid grid-cols-2 max-w-230 mx-auto gap-10 pt-25">
         <div className="flex flex-col">
           <hr className="border-sky-gradient" />
           <ul className="text-[28px] leading-[1.1] font-semibold text-[#f5f5f7] pt-7.5">

@@ -31,23 +31,17 @@ function TimeToUpgrade() {
     });
   }, []);
 
-  // 🔹 Animate cards when option changes
   useGSAP(
     () => {
       gsap.fromTo(
         cardsRef.current,
         {
           opacity: 0,
-          y: 40,
-          scale: 0.96,
         },
         {
           opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.8,
+          duration: 1.8,
           ease: "power3.out",
-          stagger: 0.12,
         }
       );
     },

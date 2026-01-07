@@ -34,7 +34,7 @@ function App() {
       <ThreeChips />
       <BuiltForAi />
       <BornToRun />
-      {/* <Intelligence />
+      <Intelligence />
       <GreatPowers />
       <BatteryLife />
       <FreshFaced />
@@ -46,7 +46,7 @@ function App() {
       <UltimateShow />
       <PowerfullConnection />
       <NoCompromise />
-      <TimeToUpgrade /> */}
+      <TimeToUpgrade />
     </>
   );
 }

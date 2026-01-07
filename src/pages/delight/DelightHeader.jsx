@@ -3,7 +3,7 @@ import Delight from "./Delight";
 
 function DelightHeader() {
   return (
-    <div className="z-20 pt-40">
+    <div className="z-20 py-30">
       <ContentBlock
         className={"mb-14"}
         eyebrow="Delight"

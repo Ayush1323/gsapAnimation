@@ -3,8 +3,15 @@ import securityHero from "../../assets/Images/security_hero__f06nvgwd8eye_large.
 import touchIdIcon from "../../assets/Images/noCompromise/security_icon_touchid__esgl4qj1ylkm_large.png";
 import findMyIcon from "../../assets/Images/noCompromise/security_icon_findmy__edciyxehqsa6_large.png";
 import fileVaultIcon from "../../assets/Images/noCompromise/security_icon_privacy__vf4d2pc74v6i_large.png";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function NoCompromise() {
+  const securityFeatureRef = useRef(null);
   const securityFeatures = [
     {
       id: 1,
@@ -29,6 +36,23 @@ function NoCompromise() {
     },
   ];
 
+  useGSAP(
+    () => {
+      gsap.from(securityFeatureRef.current.children, {
+        opacity: 0,
+        y: 100,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: securityFeatureRef.current,
+          start: "top 80%",
+        },
+      });
+    },
+    { scope: securityFeatureRef }
+  );
+
   return (
     <div className="py-30 relative">
       <ContentBlock
@@ -36,10 +60,10 @@ function NoCompromise() {
         title="No compromises."
         className={"max-w-230! mb-20"}
       />
-      <div className="max-w-270 mx-auto">
+      <div ref={securityFeatureRef} className="max-w-270 mx-auto">
         <img src={securityHero} alt="" className="w-full h-full object-cover" />
       </div>
-      <div className="max-w-230 mx-auto">
+      <div ref={securityFeatureRef} className="max-w-230 mx-auto">
         <p className="text-[21px] font-semibold text-[#86868b] leading-[1.2] mt-15">
           <span className="text-white">Security starts with Apple silicon</span>{" "}
           and extends to the macOS architecture. This deep integration of

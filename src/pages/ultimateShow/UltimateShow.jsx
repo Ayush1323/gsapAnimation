@@ -29,7 +29,7 @@ function UltimateShow() {
   );
 
   return (
-    <div className="pt-40" ref={continuityRef}>
+    <div className="py-30" ref={continuityRef}>
       <ContentBlock
         eyebrow="Camera"
         title="The ultimate show and tell."

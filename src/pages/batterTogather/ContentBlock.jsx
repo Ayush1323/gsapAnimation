@@ -1,5 +1,10 @@
 import clsx from "clsx";
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
+gsap.registerPlugin(ScrollTrigger);
 function ContentBlock({
   eyebrow,
   title,
@@ -8,8 +13,28 @@ function ContentBlock({
   onLinkClick,
   className,
 }) {
+  const ref = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(ref.current.children, {
+        opacity: 0,
+        y: 100,
+        duration: 1.5,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 100%",
+          // markers: true,
+        },
+      });
+    },
+    { scope: ref }
+  );
+
   return (
-    <div className={clsx(className, "max-w-210 mx-auto")}>
+    <div ref={ref} className={clsx(className, "max-w-210 mx-auto")}>
       {eyebrow && (
         <h2 className="text-[24px] font-semibold text-[#f5f5f7] leading-[1.2]">
           {eyebrow}

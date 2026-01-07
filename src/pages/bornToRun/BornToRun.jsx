@@ -21,7 +21,6 @@ function BornToRun() {
         scrollTrigger: {
           trigger: cardRef.current,
           start: "top 70%",
-          markers: true,
           onEnter: () => {
             if (manVideoRef.current) {
               manVideoRef.current.play();

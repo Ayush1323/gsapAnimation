@@ -27,7 +27,7 @@ function NanoTexture() {
   );
 
   return (
-    <div ref={sliderRefNano} className="pt-20">
+    <div ref={sliderRefNano}  >
       <LiquidGlassSlider slides={NANO_TEXTURE} />;
     </div>
   );

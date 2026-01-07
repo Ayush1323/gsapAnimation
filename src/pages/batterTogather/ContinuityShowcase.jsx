@@ -6,8 +6,10 @@ import NextIcon from "../../assets/Icons/NextIcon";
 
 function ContinuityShowcase({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null);
 
-  const mediaRef = useRef(null);
+  // Multiple refs for stacked media
+  const mediaRefs = useRef([]);
   const contentRef = useRef(null);
 
   const tabsWrapperRef = useRef(null);
@@ -21,25 +23,37 @@ function ContinuityShowcase({ data }) {
 
   const STEP = 180;
 
-  /* ---------------- Media animation ---------------- */
   useGSAP(
     () => {
-      gsap.fromTo(
-        mediaRef.current,
-        { opacity: 0 },
+      const tl = gsap.timeline();
+
+      tl.to(
+        mediaRefs.current[prevIndex],
+        {
+          opacity: 0,
+          duration: 1.2,
+          ease: "power2.in",
+        },
+        "-=0.7"
+      );
+
+      tl.to(
+        mediaRefs.current[activeIndex],
         {
           opacity: 1,
-          duration: 2.2,
+          duration: 1.2,
           ease: "power3.out",
-        }
+        },
+        "-=0.5"
       );
 
       gsap.fromTo(
         contentRef.current,
-        { opacity: 0 },
+        { opacity: 0, y: 10 },
         {
           opacity: 1,
-          duration: 1,
+          y: 0,
+          duration: 0.8,
           ease: "power3.out",
         }
       );
@@ -47,7 +61,6 @@ function ContinuityShowcase({ data }) {
     { dependencies: [activeIndex] }
   );
 
-  /* ---------------- Tabs scroll animation ---------------- */
   useEffect(() => {
     gsap.to(tabsInnerRef.current, {
       x: tabsOffset,
@@ -56,7 +69,6 @@ function ContinuityShowcase({ data }) {
     });
   }, [tabsOffset]);
 
-  /* ---------------- Moving underline ---------------- */
   useEffect(() => {
     const currentTab = tabRefs.current[activeIndex];
     const indicator = indicatorRef.current;
@@ -75,7 +87,6 @@ function ContinuityShowcase({ data }) {
     });
   }, [activeIndex, tabsOffset]);
 
-  /* ---------------- Overflow detection ---------------- */
   useEffect(() => {
     const wrapper = tabsWrapperRef.current;
     const inner = tabsInnerRef.current;
@@ -96,8 +107,14 @@ function ContinuityShowcase({ data }) {
     }
   }, [tabsOffset, data]);
 
+  const handleIndexChange = (newIndex) => {
+    setPrevIndex(activeIndex);
+    setActiveIndex(newIndex);
+  };
+
   const prev = () => {
-    setActiveIndex((i) => Math.max(i - 1, 0));
+    const newIndex = Math.max(activeIndex - 1, 0);
+    handleIndexChange(newIndex);
     setTabsOffset((v) => Math.min(v + STEP, 0));
   };
 
@@ -106,42 +123,55 @@ function ContinuityShowcase({ data }) {
     const inner = tabsInnerRef.current;
     const maxOffset = wrapper.offsetWidth - inner.scrollWidth;
 
-    setActiveIndex((i) => Math.min(i + 1, data.length - 1));
+    const newIndex = Math.min(activeIndex + 1, data.length - 1);
+    handleIndexChange(newIndex);
     setTabsOffset((v) => Math.max(v - STEP, maxOffset));
   };
 
-  const activeItem = data[activeIndex];
-  const isVideo = activeItem.image?.endsWith(".mp4");
-
   return (
-    <section className="relative bg-black py-20 overflow-hidden">
-      {/* MEDIA */}
-      <div className="mb-14 relative rounded-3xl overflow-hidden w-[1052px] h-[620px]">
-        {isVideo ? (
-          <video
-            ref={mediaRef}
-            src={activeItem.image}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full rounded-3xl"
-          />
-        ) : (
-          <img
-            ref={mediaRef}
-            src={activeItem.image}
-            alt=""
-            className="w-full rounded-3xl"
-          />
-        )}
+    <section className="relative bg-black pt-20 overflow-hidden">
+      <div className="mb-14 relative rounded-3xl w-263 h-155">
+        {data.map((item, index) => {
+          const isVideo = item.image?.endsWith(".mp4");
+          const isActive = index === activeIndex;
 
-        {activeItem.smallContent && (
+          return (
+            <div
+              key={index}
+              ref={(el) => (mediaRefs.current[index] = el)}
+              className="absolute inset-0 w-full h-full"
+              style={{
+                opacity: index === 0 && prevIndex === null ? 1 : 0,
+                zIndex: isActive ? 2 : 1,
+              }}
+            >
+              {isVideo ? (
+                <video
+                  src={item.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full rounded-3xl"
+                />
+              ) : (
+                <img
+                  src={item.image}
+                  alt=""
+                  className="w-full h-full rounded-3xl"
+                />
+              )}
+            </div>
+          );
+        })}
+
+        {/* Small content overlay */}
+        {data[activeIndex].smallContent && (
           <div
             ref={contentRef}
-            className="absolute -bottom-6 right-2 text-[#FFFFFFCC] text-[12px] text-center"
+            className="absolute -bottom-6 right-2 text-[#FFFFFFCC] text-[12px] text-center z-10"
           >
-            {activeItem.smallContent}
+            {data[activeIndex].smallContent}
           </div>
         )}
       </div>
@@ -163,13 +193,13 @@ function ContinuityShowcase({ data }) {
         >
           <div
             ref={tabsInnerRef}
-            className="relative flex gap-8 text-[#FFFFFFCC] text-[17px] "
+            className="relative flex gap-8 text-[#FFFFFFCC] text-[17px]"
           >
             {data.map((item, index) => (
               <button
                 key={item.tab}
                 ref={(el) => (tabRefs.current[index] = el)}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => handleIndexChange(index)}
                 className={`pb-3 whitespace-nowrap transition-colors cursor-pointer ${
                   index === activeIndex ? "text-white" : "hover:text-white/80"
                 }`}
@@ -200,7 +230,7 @@ function ContinuityShowcase({ data }) {
       {/* DESCRIPTION */}
       <div ref={contentRef} className="text-center max-w-3xl mx-auto">
         <p className="text-[#86868b] text-[17px] font-semibold leading-[1.2]">
-          {activeItem.description}
+          {data[activeIndex].description}
         </p>
       </div>
     </section>

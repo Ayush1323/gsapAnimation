@@ -114,13 +114,9 @@ function Delight() {
 
       {/* TEXT */}
       <div className="absolute inset-0 z-20 flex items-end justify-center pb-32 pointer-events-none">
-        <div ref={linesRef} className="space-y-4 text-center">
+        <div ref={linesRef} className="space-y-10 text-center">
           {lines.map((text, i) => (
-            <p
-              key={i}
-              //   ref={(el) => (linesRef.current[i] = el)}
-              className="text-white text-[48px] font-semibold"
-            >
+            <p key={i} className="text-white text-[48px] font-semibold">
               {text}
             </p>
           ))}

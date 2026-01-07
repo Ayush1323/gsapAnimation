@@ -21,7 +21,7 @@ function BatterTogather() {
         stagger: 0.2,
         scrollTrigger: {
           trigger: continuityRef.current,
-          start: "top 80%",
+          start: "top bottom",
         },
       });
     },
@@ -29,7 +29,7 @@ function BatterTogather() {
   );
 
   return (
-    <div ref={continuityRef}>
+    <div ref={continuityRef} className="py-30">
       <ContentBlock
         eyebrow="Mac + iPhone"
         title="Even better together."

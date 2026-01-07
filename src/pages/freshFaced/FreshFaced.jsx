@@ -87,12 +87,13 @@ function FreshFaced() {
       </section>
       <div className="mt-15 max-w-220 mx-auto">
         <p className="text-[21px]  font-semibold text-[#86868b] leading-[1.2]">
-          macOS Tahoe introduces Liquid Glass, a refined yet familiar look. With
+          macOS Tahoe introduces Liquid Glass,{" "}
+          <span className="text-white">a refined yet familiar look.</span> With
           new ways to boost your productivity, work seamlessly with iPhone and
           get even more from Apple Intelligence, it’s the most beautiful and
           powerful version of macOS yet.
         </p>
-        <p className="text-[21px] underline text-blue-500 cursor-pointer mt-3">
+        <p className="text-[21px] hover:underline text-[#2997ff] cursor-pointer mt-3">
           Learn more about macOS Tahoe {">"}
         </p>
       </div>

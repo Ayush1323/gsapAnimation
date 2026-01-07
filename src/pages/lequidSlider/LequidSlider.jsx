@@ -27,7 +27,7 @@ function LequidSlider() {
   );
 
   return (
-    <div ref={sliderRef} className="py-20">
+    <div ref={sliderRef} className="py-30">
       <LiquidGlassSlider slides={LIQUID_SLIDER} />;
     </div>
   );

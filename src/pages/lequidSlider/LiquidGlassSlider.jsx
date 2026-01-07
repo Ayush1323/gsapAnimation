@@ -10,13 +10,14 @@ const LiquidGlassSlider = ({ slides }) => {
   const [isEnd, setIsEnd] = useState(false);
 
   return (
-    <section className="relative bg-black py-20 overflow-hidden">
+    <section className="relative bg-black py-20 ">
       <Swiper
         modules={[Navigation]}
         slidesPerView="auto"
         slidesOffsetBefore={350}
         slidesOffsetAfter={350}
         speed={1200}
+        allowTouchMove={false}
         spaceBetween={20}
         navigation={{
           nextEl: ".apple-next",
@@ -36,9 +37,12 @@ const LiquidGlassSlider = ({ slides }) => {
           const isVideo = item.image.endsWith(".mp4");
 
           return (
-            <SwiperSlide key={i} className="apple-slide max-w-175! w-auto!">
-              {/* FIXED SIZE CONTAINER */}
-              <div className="relative h-120 rounded-4xl overflow-hidden bg-black">
+            <SwiperSlide
+              key={i}
+              className="apple-slide max-w-175! w-auto! flex flex-col"
+            >
+              {/* MEDIA */}
+              <div className="relative w-full h-[420px] bg-black overflow-hidden rounded-4xl">
                 {isVideo ? (
                   <video
                     src={item.image}
@@ -58,7 +62,7 @@ const LiquidGlassSlider = ({ slides }) => {
               </div>
 
               {/* TEXT */}
-              <div className="mt-6 ml-6 max-w-120 text-white">
+              <div className="mt-6 ml-6 max-w-120 min-h-[120px] text-white">
                 {item.content}
               </div>
             </SwiperSlide>
@@ -67,12 +71,12 @@ const LiquidGlassSlider = ({ slides }) => {
       </Swiper>
 
       {/* APPLE ARROWS */}
-      <div className="absolute bottom-0 right-30 flex gap-3 z-20">
+      <div className="absolute -bottom-10 right-80 flex gap-3 z-20">
         <button
           className={`apple-prev w-10 h-10 rounded-full backdrop-blur-md flex items-center justify-center cursor-pointer text-white
       ${
         isBeginning
-          ? "bg-white/5 opacity-40 cursor-not-allowed"
+          ? "bg-white/5 cursor-not-allowed"
           : "bg-white/10 hover:bg-white/20"
       }`}
           disabled={isBeginning}
@@ -85,7 +89,7 @@ const LiquidGlassSlider = ({ slides }) => {
           className={`apple-next w-10 h-10 rounded-full backdrop-blur-md flex items-center justify-center cursor-pointer text-white
       ${
         isEnd
-          ? "bg-white/5 opacity-40 cursor-not-allowed"
+          ? "bg-white/5 cursor-not-allowed"
           : "bg-white/10 hover:bg-white/20"
       }`}
           disabled={isEnd}
