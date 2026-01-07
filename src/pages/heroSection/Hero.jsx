@@ -1,5 +1,6 @@
 import Button from "../../components/Button";
 import heroVideo from "../../assets/Videos/heroVideo.mp4";
+import NewAnimation from "../NewAnimation";
 
 function Hero() {
   return (
@@ -32,6 +33,9 @@ function Hero() {
               <Button>Buy</Button>
             </div>
           </div>
+        </div>
+        <div className="absolute inset-0 w-full h-full z-50">
+          <NewAnimation />
         </div>
       </div>
     </section>
