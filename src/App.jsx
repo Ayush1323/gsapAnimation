@@ -26,7 +26,7 @@ function App() {
   return (
     <>
       <Header />
-      <Hero />
+      {/* <Hero />
       <Highlights />
       <CloserLook />
       <ScrollingFive />
@@ -46,7 +46,7 @@ function App() {
       <UltimateShow />
       <PowerfullConnection />
       <NoCompromise />
-      <TimeToUpgrade />
+      <TimeToUpgrade /> */}
     </>
   );
 }

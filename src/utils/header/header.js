@@ -49,6 +49,12 @@ export const HEADER_VALUE = [
     menu: ["iPhone 15", "iPhone 14", "Compare iPhone", "Switch from Android"],
   },
   {
+    id: "vision",
+    label: "Vision",
+    hasMenu: true,
+    menu: ["MacBook Air", "MacBook Pro", "iMac", "Mac mini", "Compare Mac"],
+  },
+  {
     id: "watch",
     label: "Watch",
     hasMenu: true,
@@ -117,6 +123,79 @@ export const HEADER_VALUE = [
   />
 </svg>
 `,
+    hasMenu: false,
+  },
+  {
+    id: "menu",
+    type: "menu",
+    icon: ` <svg width="18" height="18" viewBox="0 0 18 18">
+            <polyline
+              id="globalnav-menutrigger-bread-bottom"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              points="2 12, 16 12"
+              class="globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom"
+            >
+              <animate
+                id="globalnav-anim-menutrigger-bread-bottom-open"
+                attributeName="points"
+                keyTimes="0;0.5;1"
+                dur="0.24s"
+                begin="indefinite"
+                fill="freeze"
+                calcMode="spline"
+                keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1"
+                values=" 2 12, 16 12; 2 9, 16 9; 3.5 15, 15 3.5"
+              ></animate>
+              <animate
+                id="globalnav-anim-menutrigger-bread-bottom-close"
+                attributeName="points"
+                keyTimes="0;0.5;1"
+                dur="0.24s"
+                begin="indefinite"
+                fill="freeze"
+                calcMode="spline"
+                keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1"
+                values=" 3.5 15, 15 3.5; 2 9, 16 9; 2 12, 16 12"
+              ></animate>
+            </polyline>
+            <polyline
+              id="globalnav-menutrigger-bread-top"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              points="2 5, 16 5"
+              class="globalnav-menutrigger-bread globalnav-menutrigger-bread-top"
+            >
+              <animate
+                id="globalnav-anim-menutrigger-bread-top-open"
+                attributeName="points"
+                keyTimes="0;0.5;1"
+                dur="0.24s"
+                begin="indefinite"
+                fill="freeze"
+                calcMode="spline"
+                keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1"
+                values=" 2 5, 16 5; 2 9, 16 9; 3.5 3.5, 15 15"
+              ></animate>
+              <animate
+                id="globalnav-anim-menutrigger-bread-top-close"
+                attributeName="points"
+                keyTimes="0;0.5;1"
+                dur="0.24s"
+                begin="indefinite"
+                fill="freeze"
+                calcMode="spline"
+                keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1"
+                values=" 3.5 3.5, 15 15; 2 9, 16 9; 2 5, 16 5"
+              ></animate>
+            </polyline>
+          </svg>`,
     hasMenu: false,
   },
 ];
