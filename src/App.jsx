@@ -28,7 +28,7 @@ function App() {
       <Header />
       <Hero />
       <Highlights />
-      <CloserLook />
+      {/*<CloserLook />
       <ScrollingFive />
       <DragonLaptop />
       <ThreeChips />
@@ -46,7 +46,7 @@ function App() {
       <UltimateShow />
       <PowerfullConnection />
       <NoCompromise />
-      <TimeToUpgrade />
+      <TimeToUpgrade /> */}
     </>
   );
 }

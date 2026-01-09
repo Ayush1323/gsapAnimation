@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback, memo } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import gsap from "gsap";
 import PlayIcon from "../assets/Icons/PlayIcon";
 import PauseIcon from "../assets/Icons/PauseIcon";
@@ -134,4 +134,4 @@ function Pagination({
   );
 }
 
-export default memo(Pagination);
+export default Pagination;
