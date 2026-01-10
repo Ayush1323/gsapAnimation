@@ -1,8 +1,8 @@
+import { useGSAP } from "@gsap/react";
 import clsx from "clsx";
-import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 function ContentBlock({
@@ -19,14 +19,13 @@ function ContentBlock({
     () => {
       gsap.from(ref.current.children, {
         opacity: 0,
-        y: 100,
-        duration: 1.5,
+        y: 80,
+        duration: 1.2,
         stagger: 0.2,
         ease: "power3.out",
         scrollTrigger: {
           trigger: ref.current,
-          start: "top 100%",
-          // markers: true,
+          start: "top 90%",
         },
       });
     },
@@ -34,29 +33,35 @@ function ContentBlock({
   );
 
   return (
-    <div ref={ref} className={clsx(className, "max-w-210 mx-auto")}>
+    <div
+      ref={ref}
+      className={clsx(
+        "max-w-210 mx-auto sm:px-0",
+        className
+      )}
+    >
       {eyebrow && (
-        <h2 className="text-[24px] font-semibold text-[#f5f5f7] leading-[1.2]">
+        <h2 className="text-[18px] sm:text-[20px] lg:text-[24px] font-semibold text-[#f5f5f7] leading-[1.2]">
           {eyebrow}
         </h2>
       )}
 
       {title && (
-        <h3 className="text-[80px] font-semibold text-[#f5f5f7] leading-[1.2] mt-3">
+        <h3 className="text-[40px] sm:text-[56px] lg:text-[80px] font-semibold text-[#f5f5f7] leading-[1.05] mt-3">
           {title}
         </h3>
       )}
 
       {description && (
-        <p className="text-[21px] font-semibold text-[#86868b] leading-[1.2] mt-12">
+        <div className="text-[16px] sm:text-[18px] lg:text-[21px] font-semibold text-[#86868b] leading-[1.35] mt-8 sm:mt-12">
           {description}
-        </p>
+        </div>
       )}
 
       {linkText && (
         <p
           onClick={onLinkClick}
-          className="text-[21px] text-blue-400 cursor-pointer mt-5"
+          className="text-[16px] sm:text-[18px] lg:text-[21px] text-blue-400 cursor-pointer mt-5"
         >
           {linkText} {">"}
         </p>
@@ -64,5 +69,6 @@ function ContentBlock({
     </div>
   );
 }
+
 
 export default ContentBlock;

@@ -1,14 +1,13 @@
-import { useState, useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import PrevIcon from "../../assets/Icons/PrevIcon";
+import { useEffect, useRef, useState } from "react";
 import NextIcon from "../../assets/Icons/NextIcon";
+import PrevIcon from "../../assets/Icons/PrevIcon";
 
 function ContinuityShowcase({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(null);
 
-  // Multiple refs for stacked media
   const mediaRefs = useRef([]);
   const contentRef = useRef(null);
 
@@ -27,35 +26,28 @@ function ContinuityShowcase({ data }) {
     () => {
       const tl = gsap.timeline();
 
-      tl.to(
-        mediaRefs.current[prevIndex],
-        {
+      if (prevIndex !== null) {
+        tl.to(mediaRefs.current[prevIndex], {
           opacity: 0,
-          duration: 1.2,
+          duration: 1,
           ease: "power2.in",
-        },
-        "-=0.7"
-      );
+        });
+      }
 
       tl.to(
         mediaRefs.current[activeIndex],
         {
           opacity: 1,
-          duration: 1.2,
+          duration: 1.1,
           ease: "power3.out",
         },
-        "-=0.5"
+        "-=0.7"
       );
 
       gsap.fromTo(
         contentRef.current,
-        { opacity: 0, y: 10 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        }
+        { opacity: 0, y: 8 },
+        { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }
       );
     },
     { dependencies: [activeIndex] }
@@ -64,7 +56,7 @@ function ContinuityShowcase({ data }) {
   useEffect(() => {
     gsap.to(tabsInnerRef.current, {
       x: tabsOffset,
-      duration: 0.8,
+      duration: 0.6,
       ease: "power3.out",
     });
   }, [tabsOffset]);
@@ -82,7 +74,7 @@ function ContinuityShowcase({ data }) {
     gsap.to(indicator, {
       x: tabRect.left - wrapperRect.left,
       width: tabRect.width,
-      duration: 0.6,
+      duration: 0.5,
       ease: "power3.out",
     });
   }, [activeIndex, tabsOffset]);
@@ -90,7 +82,6 @@ function ContinuityShowcase({ data }) {
   useEffect(() => {
     const wrapper = tabsWrapperRef.current;
     const inner = tabsInnerRef.current;
-
     if (!wrapper || !inner) return;
 
     const isOverflow = inner.scrollWidth > wrapper.offsetWidth;
@@ -113,8 +104,7 @@ function ContinuityShowcase({ data }) {
   };
 
   const prev = () => {
-    const newIndex = Math.max(activeIndex - 1, 0);
-    handleIndexChange(newIndex);
+    handleIndexChange(Math.max(activeIndex - 1, 0));
     setTabsOffset((v) => Math.min(v + STEP, 0));
   };
 
@@ -123,14 +113,14 @@ function ContinuityShowcase({ data }) {
     const inner = tabsInnerRef.current;
     const maxOffset = wrapper.offsetWidth - inner.scrollWidth;
 
-    const newIndex = Math.min(activeIndex + 1, data.length - 1);
-    handleIndexChange(newIndex);
+    handleIndexChange(Math.min(activeIndex + 1, data.length - 1));
     setTabsOffset((v) => Math.max(v - STEP, maxOffset));
   };
 
   return (
-    <section className="relative bg-black pt-20 overflow-hidden">
-      <div className="mb-14 relative rounded-3xl w-263 h-155">
+    <section className="relative bg-black pt-14 sm:pt-20 overflow-hidden">
+      {/* MEDIA */}
+      <div className="relative mx-auto mb-12 w-full sm:w-263 h-[220px] sm:h-155 rounded-3xl">
         {data.map((item, index) => {
           const isVideo = item.image?.endsWith(".mp4");
           const isActive = index === activeIndex;
@@ -139,7 +129,7 @@ function ContinuityShowcase({ data }) {
             <div
               key={index}
               ref={(el) => (mediaRefs.current[index] = el)}
-              className="absolute inset-0 w-full h-full"
+              className="absolute inset-0"
               style={{
                 opacity: index === 0 && prevIndex === null ? 1 : 0,
                 zIndex: isActive ? 2 : 1,
@@ -152,63 +142,57 @@ function ContinuityShowcase({ data }) {
                   muted
                   loop
                   playsInline
-                  className="w-full h-full rounded-3xl"
+                  className="w-full h-full object-cover rounded-3xl"
                 />
               ) : (
                 <img
                   src={item.image}
                   alt=""
-                  className="w-full h-full rounded-3xl"
+                  className="w-full h-full object-cover rounded-3xl"
                 />
               )}
             </div>
           );
         })}
 
-        {/* Small content overlay */}
         {data[activeIndex].smallContent && (
-          <div
-            ref={contentRef}
-            className="absolute -bottom-6 right-2 text-[#FFFFFFCC] text-[12px] text-center z-10"
-          >
+          <div className="absolute -bottom-5 right-2 text-[11px] sm:text-[12px] text-[#FFFFFFCC] text-center">
             {data[activeIndex].smallContent}
           </div>
         )}
       </div>
 
       {/* TABS */}
-      <div className="relative flex items-center justify-center gap-4 mb-6">
+      <div className="relative flex items-center justify-center gap-3 mb-6 px-3">
         {showPrev && (
-          <button
-            onClick={prev}
-            className="w-8 h-8 flex items-center justify-center text-white/70 hover:text-white transition"
-          >
+          <button onClick={prev} className="text-white/70 hover:text-white">
             <PrevIcon size={16} />
           </button>
         )}
 
         <div
           ref={tabsWrapperRef}
-          className="overflow-hidden max-w-full border-b border-[#86868b]/60"
+          className="overflow-hidden border-b border-[#86868b]/60 max-w-full"
         >
           <div
             ref={tabsInnerRef}
-            className="relative flex gap-8 text-[#FFFFFFCC] text-[17px]"
+            className="relative flex gap-6 sm:gap-8 text-[14px] sm:text-[17px] text-[#FFFFFFCC]"
           >
             {data.map((item, index) => (
               <button
                 key={item.tab}
                 ref={(el) => (tabRefs.current[index] = el)}
                 onClick={() => handleIndexChange(index)}
-                className={`pb-3 whitespace-nowrap transition-colors cursor-pointer ${
-                  index === activeIndex ? "text-white" : "hover:text-white/80"
+                className={`pb-3 whitespace-nowrap transition ${
+                  index === activeIndex
+                    ? "text-white"
+                    : "hover:text-white/80"
                 }`}
               >
                 {item.tab}
               </button>
             ))}
 
-            {/* UNDERLINE */}
             <span
               ref={indicatorRef}
               className="absolute bottom-0 h-px bg-white"
@@ -218,18 +202,15 @@ function ContinuityShowcase({ data }) {
         </div>
 
         {showNext && (
-          <button
-            onClick={next}
-            className="w-8 h-8 flex items-center justify-center text-white/70 hover:text-white transition"
-          >
+          <button onClick={next} className="text-white/70 hover:text-white">
             <NextIcon size={16} />
           </button>
         )}
       </div>
 
       {/* DESCRIPTION */}
-      <div ref={contentRef} className="text-center max-w-3xl mx-auto">
-        <p className="text-[#86868b] text-[17px] font-semibold leading-[1.2]">
+      <div className="text-center max-w-3xl mx-auto px-4">
+        <p className="text-[#86868b] text-[14px] sm:text-[16px] lg:text-[17px] font-semibold leading-[1.35]">
           {data[activeIndex].description}
         </p>
       </div>
