@@ -31,7 +31,7 @@ function UltimateShow() {
   return (
     <section
       ref={continuityRef}
-      className="py-20 sm:py-24 lg:py-30 px-5 sm:px-8"
+      className="py-20 sm:py-24 lg:py-30 px-4 sm:px-8"
     >
       <ContentBlock
         eyebrow="Camera"

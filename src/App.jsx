@@ -1,13 +1,19 @@
 import "./App.css";
-import DelightHeader from "./pages/delight/DelightHeader";
+import BatterTogather from "./pages/batterTogather/BatterTogather";
+import BatteryLife from "./pages/batteryLife/BatteryLife";
+import FreshFaced from "./pages/freshFaced/FreshFaced";
+import GreatPowers from "./pages/greatPowers/GreatPowers";
 import Header from "./pages/header/Header";
 import Hero from "./pages/heroSection/Hero";
 import Highlights from "./pages/highlights/Highlights";
+import Intelligence from "./pages/intelligence/Intelligence";
+import LequidSlider from "./pages/lequidSlider/LequidSlider";
 import NanoTexture from "./pages/nanoTexture/NanoTexture";
 import NoCompromise from "./pages/noCompromise/NoCompromise";
 import PowerfullConnection from "./pages/powerfullConnection/PowerfullConnection";
 import TimeToUpgrade from "./pages/timeToUpgrade/TimeToUpgrade";
 import UltimateShow from "./pages/ultimateShow/UltimateShow";
+import YourAmbitions from "./pages/yourAmbitions/YourAmbitions";
 
 function App() {
   return (
@@ -20,15 +26,16 @@ function App() {
       <DragonLaptop />
       <ThreeChips />
       <BuiltForAi />
-      <BornToRun />
+      <BornToRun />*/}
       <Intelligence />
       <GreatPowers />
       <BatteryLife />
-      <FreshFaced />*/}
-      {/* <LequidSlider /> */}
-      {/* <BatterTogather /> */}
-      {/* <YourAmbitions /> */}
-     <DelightHeader />
+      <FreshFaced />
+      <LequidSlider />
+      <BatterTogather />
+      <YourAmbitions />
+      {/* Niche vadu baki chhe */}
+     {/* <DelightHeader />  */} 
   <NanoTexture />
       <UltimateShow />
       <PowerfullConnection />

@@ -1,10 +1,10 @@
-import ContentBlock from "./ContentBlock";
-import ContinuityShowcase from "./ContinuityShowcase";
-import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import { CONTINUITY_DATA } from "../../utils/ContinuityData";
+import ContentBlock from "./ContentBlock";
+import ContinuityShowcase from "./ContinuityShowcase";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,7 +29,7 @@ function BatterTogather() {
   );
 
   return (
-    <div ref={continuityRef} className="py-30">
+    <div ref={continuityRef} className="py-20 sm:py-24 lg:py-30 px-4 sm:px-8">
       <ContentBlock
         eyebrow="Mac + iPhone"
         title="Even better together."
@@ -45,7 +45,7 @@ function BatterTogather() {
         linkText="Learn more about macOS Tahoe"
       />
 
-      <div className="max-w-263 mx-auto">
+      <div className="max-w-263 mx-auto mt-0 sm:mt-16">
         <ContinuityShowcase data={CONTINUITY_DATA} />
       </div>
     </div>
