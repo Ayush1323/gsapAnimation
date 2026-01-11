@@ -13,7 +13,7 @@ function ThreeChips() {
         <Chips />
       </div>
     </div>
-  );
+  );x
 }
 
 export default ThreeChips;
