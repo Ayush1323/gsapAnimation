@@ -1,6 +1,9 @@
 import performanceM5 from "../../assets/Images/chips/performance_m5_screen.jpg";
 import performanceM4Pro from "../../assets/Images/chips/performance_m4pro.jpg";
 import performanceM4Max from "../../assets/Images/chips/performance_m4max.jpg";
+import iconM5 from "../../assets/Images/chips/performance_icon_m5__dk75oifli58i_large.png";
+import iconM4Pro from "../../assets/Images/chips/performance_icon_m4pro__ez04pndyaq6a_large.png";
+import iconM4Max from "../../assets/Images/chips/performance_icon_m4max__getmf50wffqm_large.png";
 
 export const CHEAP_IMAGES = [performanceM5, performanceM4Pro, performanceM4Max];
 
@@ -10,17 +13,35 @@ export const CHIP_INFORMATION = [
     available: "Available in MacBook Pro 14″",
     faster: "Up to 6x faster than M16",
     gradientText: "text-apple-gradient",
+    image: performanceM5,
+    icon: iconM5,
+    alt: "M5 chip",
+    bg: "bg-apple-chip",
   },
   {
     text: "M4 Pro delivers even more power for scientists, engineers, software developers and creative pros tackling intensive projects.",
     available: "Available in MacBook Pro 14″ and 16″",
     faster: "Up to 3x faster than M1 Pro",
     gradientText: "text-blue-cyan",
+    image: performanceM4Pro,
+    icon: iconM4Pro,
+    alt: "M4 Pro chip",
+    bg: "bg-m4-pro",
   },
   {
     text: "Our most advanced chip ever built for a pro laptop. M4 Max is perfect for 3D VFX artists, AI developers and film composers.",
     available: "Available in MacBook Pro 14″ and 16″",
     faster: "Up to 3.5x faster than M1 Max",
     gradientText: "text-pink-purple",
+    image: performanceM4Max,
+    icon: iconM4Max,
+    alt: "M4 Max chip",
+    bg: "bg-m4-max",
   },
+];
+
+export const CHIPS = [
+  { icon: iconM5, alt: "M5 chip" },
+  { icon: iconM4Pro, alt: "M4 Pro chip" },
+  { icon: iconM4Max, alt: "M4 Max chip" },
 ];

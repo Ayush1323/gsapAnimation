@@ -5,12 +5,9 @@ import { useGSAP } from "@gsap/react";
 import {
   CHEAP_IMAGES,
   CHIP_INFORMATION,
+  CHIPS,
 } from "../../utils/chips/chipsInformation";
-import StickyHeadingChip from "./StickyHeadingChip";
 import laptopImage from "../../assets/Images/chips/performance_laptop_screen.jpg";
-import iconM5 from "../../assets/Images/chips/performance_icon_m5__dk75oifli58i_large.png";
-import iconM4Pro from "../../assets/Images/chips/performance_icon_m4pro__ez04pndyaq6a_large.png";
-import iconM4Max from "../../assets/Images/chips/performance_icon_m4max__getmf50wffqm_large.png";
 gsap.registerPlugin(ScrollTrigger);
 
 function Chips() {
@@ -18,200 +15,192 @@ function Chips() {
   const imagesRef = useRef([]);
   const contentsRef = useRef([]);
   const chipsRef = useRef([]);
-  const chips = [
-    { icon: iconM5, alt: "M5 chip" },
-    { icon: iconM4Pro, alt: "M4 Pro chip" },
-    { icon: iconM4Max, alt: "M4 Max chip" },
-  ];
+
   useGSAP(
     () => {
-      gsap.set(imagesRef.current, { opacity: 0 });
-      gsap.set(contentsRef.current, { opacity: 0 });
-      gsap.set(imagesRef.current[0], { opacity: 1 });
-      gsap.set(contentsRef.current[0], { opacity: 1 });
-      gsap.set(contentsRef.current[0].children, { opacity: 1 });
+      const mm = gsap.matchMedia();
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=3000",
-          scrub: 1,
-          pin: true,
-        },
-      });
+      mm.add("(min-width: 768px)", () => {
+        gsap.set(imagesRef.current, { opacity: 0 });
+        gsap.set(contentsRef.current, { opacity: 0 });
+        gsap.set(imagesRef.current[0], { opacity: 1 });
+        gsap.set(contentsRef.current[0], { opacity: 1 });
+        gsap.set(contentsRef.current[0].children, { opacity: 1 });
 
-      CHEAP_IMAGES.forEach((_, i) => {
-        tl.addLabel(`chip${i}`);
-
-        tl.to(
-          imagesRef.current[i],
-          {
-            opacity: 1,
-            duration: 1.5,
-            ease: "power2.out",
-          },
-          i === 0 ? "<" : "-=1"
-        );
-
-        tl.to(contentsRef.current[i].children, {
-          opacity: 1,
-          duration: 1.2,
-          ease: "power3.out",
-          stagger: {
-            each: 0.15,
-            from: "start",
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "+=3000",
+            scrub: 1,
+            pin: true,
           },
         });
 
-        tl.to(
-          contentsRef.current[i],
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1.5,
-            ease: "power2.out",
-          },
-          "<"
-        );
+        CHEAP_IMAGES.forEach((_, i) => {
+          tl.addLabel(`chip${i}`);
 
-        if (i !== CHEAP_IMAGES.length - 1) {
           tl.to(
             imagesRef.current[i],
             {
-              opacity: 0,
-              duration: 1.2,
-              ease: "power2.in",
+              opacity: 1,
+              duration: 1.5,
+              ease: "power2.out",
             },
-            "+=0.3"
+            i === 0 ? "<" : "-=1"
           );
+
+          tl.to(contentsRef.current[i].children, {
+            opacity: 1,
+            duration: 1.2,
+            ease: "power3.out",
+            stagger: { each: 0.15 },
+          });
 
           tl.to(
-            contentsRef.current[i].children,
+            contentsRef.current[i],
             {
-              opacity: 0,
-              duration: 1,
-              ease: "power3.in",
-              stagger: {
-                each: 0.12,
-                from: "end",
-              },
+              opacity: 1,
+              y: 0,
+              duration: 1.5,
+              ease: "power2.out",
             },
-            "-=0.8"
+            "<"
           );
-        }
-      });
 
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=3000",
-        scrub: true,
-        onUpdate: (self) => {
-          const progress = self.progress;
-          let index = 0;
-          if (progress < 0.33) index = 0;
-          else if (progress < 0.66) index = 1;
-          else index = 2;
-
-          chipsRef.current.forEach((chip, i) => {
-            chip.classList.remove("bg-apple-chip", "bg-m4-pro", "bg-m4-max");
-            chip.classList.add(
-              i === index ? getChipBgClass(i) : "bg-[#333336]"
+          if (i !== CHEAP_IMAGES.length - 1) {
+            tl.to(
+              imagesRef.current[i],
+              {
+                opacity: 0,
+                duration: 1.2,
+                ease: "power2.in",
+              },
+              "+=0.3"
             );
-          });
-        },
+
+            tl.to(
+              contentsRef.current[i].children,
+              {
+                opacity: 0,
+                duration: 1,
+                ease: "power3.in",
+                stagger: { each: 0.12, from: "end" },
+              },
+              "-=0.8"
+            );
+          }
+        });
+
+        ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "+=3000",
+          scrub: true,
+          onUpdate: (self) => {
+            const p = self.progress;
+            const index = p < 0.33 ? 0 : p < 0.66 ? 1 : 2;
+
+            chipsRef.current.forEach((chip, i) => {
+              chip.classList.remove("bg-apple-chip", "bg-m4-pro", "bg-m4-max");
+              chip.classList.add(
+                i === index ? getChipBgClass(i) : "bg-[#333336]"
+              );
+            });
+          },
+        });
+
+        function getChipBgClass(index) {
+          switch (index) {
+            case 0:
+              return "bg-apple-chip";
+            case 1:
+              return "bg-m4-pro";
+            case 2:
+              return "bg-m4-max";
+            default:
+              return "bg-[#333336]";
+          }
+        }
+
+        return () => {
+          ScrollTrigger.getAll().forEach((t) => t.kill());
+        };
       });
 
-      function getChipBgClass(index) {
-        switch (index) {
-          case 0:
-            return "bg-apple-chip";
-          case 1:
-            return "bg-m4-pro";
-          case 2:
-            return "bg-m4-max";
-          default:
-            return "bg-[#333336]";
-        }
-      }
+      mm.add("(max-width: 767px)", () => {
+        gsap.set(imagesRef.current, { clearProps: "all" });
+        gsap.set(contentsRef.current, { clearProps: "all" });
+      });
     },
     { scope: sectionRef }
   );
 
   return (
-    <>
-      <section
-        ref={sectionRef}
-        className="h-screen max-w-350 mx-[10%] flex items-end"
-      >
-        <div className="grid grid-cols-[1fr_300px] gap-x-12 gap-y-20 items-start w-full mb-10">
-          <div className="relative">
-            <img src={laptopImage} className="w-full" alt="" />
-            {CHEAP_IMAGES.map((src, i) => (
-              <img
-                key={i}
-                ref={(el) => (imagesRef.current[i] = el)}
-                src={src}
-                className="absolute top-0 left-0 w-full h-full object-cover mix-blend-screen"
-                alt=""
-              />
-            ))}
-          </div>
+    <div
+      ref={sectionRef}
+      className="h-screen max-w-350 2xl:mx-[10%] xl:-mx-[10%] lg:-mx-[25%] tablet:-mx-[40%] md:-mx-[70%] flex items-center"
+    >
+      <div className="grid xl:grid-cols-[1fr_300px] grid-cols-[1fr_250px] xl:gap-x-12 gap-x-0 gap-y-20 items-start w-full mb-10">
+        <div className="relative max-md:w-full max-2xl:w-250">
+          <img src={laptopImage} className="w-full" alt="" />
+          {CHEAP_IMAGES.map((src, i) => (
+            <img
+              key={i}
+              ref={(el) => (imagesRef.current[i] = el)}
+              src={src}
+              className="absolute top-0 left-0 w-full h-full object-cover mix-blend-screen "
+              alt=""
+            />
+          ))}
+        </div>
 
-          <div className="flex flex-col gap-6 mt-20">
-            <div className="flex gap-4">
-              {chips.map((chip, i) => (
-                <div
-                  key={i}
-                  ref={(el) => (chipsRef.current[i] = el)}
-                  className="
-      w-16 h-16
-      rounded-2xl
-      bg-[#333336]
+        <div className="flex flex-col gap-6 mt-20">
+          <div className="flex gap-4">
+            {CHIPS.map((chip, i) => (
+              <div
+                key={i}
+                ref={(el) => (chipsRef.current[i] = el)}
+                className="w-16 h-16 rounded-2xl bg-[#333336]
       flex items-center justify-center
       transition-all duration-300
     "
-                >
-                  <img
-                    src={chip.icon}
-                    alt={chip.alt}
-                    className="object-contain select-none pointer-events-none"
-                  />
-                </div>
-              ))}
-            </div>
-
-            <div className="relative">
-              {CHIP_INFORMATION.map((c, i) => (
-                <div
-                  key={i}
-                  ref={(el) => (contentsRef.current[i] = el)}
-                  className="absolute top-0 left-0 w-full opacity-0"
-                >
-                  <p className="font-semibold text-[#F5F5F7] text-[28px] leading-[1.2]">
-                    {c.text}
-                  </p>
-                  <p
-                    className={`${c.gradientText} text-apple-gradient font-semibold text-[28px] leading-[1.2] mt-4`}
-                  >
-                    {c.available}
-                  </p>
-                  <p
-                    className={`${c.gradientText} text-apple-gradient font-semibold text-[28px] leading-[1.2] mt-4`}
-                  >
-                    {c.faster}
-                  </p>
-                </div>
-              ))}
-            </div>
+              >
+                <img
+                  src={chip.icon}
+                  alt={chip.alt}
+                  className="object-contain select-none pointer-events-none"
+                />
+              </div>
+            ))}
           </div>
-          <div className="flex items-center justify-center sticky bottom-10 col-span-2">
-            <StickyHeadingChip />
+
+          <div className="relative">
+            {CHIP_INFORMATION.map((c, i) => (
+              <div
+                key={i}
+                ref={(el) => (contentsRef.current[i] = el)}
+                className="absolute top-0 left-0 w-full opacity-0"
+              >
+                <p className="font-semibold text-[#F5F5F7] text-[28px] max-3xl:text-[24px] max-xl:text-[22px] leading-[1.2]">
+                  {c.text}
+                </p>
+                <p
+                  className={`${c.gradientText} text-apple-gradient font-semibold text-[28px] max-3xl:text-[24px] max-xl:text-[22px] leading-[1.2] mt-4`}
+                >
+                  {c.available}
+                </p>
+                <p
+                  className={`${c.gradientText} text-apple-gradient font-semibold text-[28px] max-3xl:text-[24px] max-xl:text-[22px] leading-[1.2] mt-4`}
+                >
+                  {c.faster}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 }
 

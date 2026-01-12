@@ -26,7 +26,6 @@ function Delight() {
   useGSAP(() => {
     const mm = gsap.matchMedia();
 
-    /* ===================== DESKTOP ===================== */
     mm.add("(min-width: 1024px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -87,7 +86,6 @@ function Delight() {
       );
     });
 
-    /* ===================== TABLET ===================== */
     mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -100,7 +98,7 @@ function Delight() {
       });
 
       tl.set(imageWrapRef.current, { width: "100%" });
-      tl.set(imageRef.current, { scale: 3.5 }); // 👈 TABLET SCALE
+      tl.set(imageRef.current, { scale: 3.5 });
 
       tl.to(overlayRef.current, {
         opacity: 0.35,
@@ -131,13 +129,12 @@ function Delight() {
       tl.to(overlayRef.current, { opacity: 0, duration: 0.8 });
 
       tl.to(imageRef.current, {
-        scale: 1.05, // 👈 TABLET END SCALE
+        scale: 1.05,
         duration: 1.2,
         ease: "power3.out",
       });
     });
 
-    /* ===================== MOBILE ===================== */
     mm.add("(max-width: 767px)", () => {
       ScrollTrigger.getAll().forEach(st => st.kill());
       gsap.set(imageRef.current, { scale: 1 });
