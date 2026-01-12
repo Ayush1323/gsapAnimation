@@ -276,7 +276,7 @@ function OptionsView() {
 
   return (
     <div ref={containerRef} className="relative max-w-350 h-184.5">
-      <div className="relative overflow-hidden rounded-4xl">
+      <div className="relative overflow-hidden rounded-4xl h-full">
         {isVideo ? (
           <video
             ref={mediaRef}

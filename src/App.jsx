@@ -3,6 +3,7 @@ import BatterTogather from "./pages/batterTogather/BatterTogather";
 import BatteryLife from "./pages/batteryLife/BatteryLife";
 import BornToRun from "./pages/bornToRun/BornToRun";
 import BuiltForAi from "./pages/builtForAi/BuiltForAi";
+import CloserLook from "./pages/closerLook/CloserLook";
 import DragonLaptop from "./pages/dragonLaptop/DragonLaptop";
 import FreshFaced from "./pages/freshFaced/FreshFaced";
 import GreatPowers from "./pages/greatPowers/GreatPowers";
@@ -14,7 +15,7 @@ import LequidSlider from "./pages/lequidSlider/LequidSlider";
 import NanoTexture from "./pages/nanoTexture/NanoTexture";
 import NoCompromise from "./pages/noCompromise/NoCompromise";
 import PowerfullConnection from "./pages/powerfullConnection/PowerfullConnection";
-import ScrollingFive from "./pages/scrollingMfive/ScrollingFive";
+import ScrollingMain from "./pages/scrollingMfive/ScrollingMain";
 import ThreeChips from "./pages/threeChips/ThreeChips";
 import TimeToUpgrade from "./pages/timeToUpgrade/TimeToUpgrade";
 import UltimateShow from "./pages/ultimateShow/UltimateShow";
@@ -26,8 +27,8 @@ function App() {
       <Header />
       <Hero />
       <Highlights />
-      {/*<CloserLook />*/}
-      <ScrollingFive />
+      <CloserLook />
+      <ScrollingMain />
       <DragonLaptop />
       <ThreeChips />
       <BuiltForAi />
