@@ -118,9 +118,9 @@ function ContinuityShowcase({ data }) {
   };
 
   return (
-    <section className="relative bg-black pt-14 sm:pt-20 overflow-hidden">
+    <section className="relative bg-black pt-14 lg:pt-20 overflow-hidden">
       {/* MEDIA */}
-      <div className="relative mx-auto mb-12 w-full sm:w-263 h-[220px] sm:h-155 rounded-3xl">
+      <div className="relative mx-auto mb-12 w-full lg:w-263 md:w-[560px]  h-[220px] md:h-[330px] lg:h-155 rounded-3xl">
         {data.map((item, index) => {
           const isVideo = item.image?.endsWith(".mp4");
           const isActive = index === activeIndex;
@@ -184,9 +184,7 @@ function ContinuityShowcase({ data }) {
                 ref={(el) => (tabRefs.current[index] = el)}
                 onClick={() => handleIndexChange(index)}
                 className={`pb-3 whitespace-nowrap transition ${
-                  index === activeIndex
-                    ? "text-white"
-                    : "hover:text-white/80"
+                  index === activeIndex ? "text-white" : "hover:text-white/80"
                 }`}
               >
                 {item.tab}

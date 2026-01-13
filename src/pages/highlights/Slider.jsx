@@ -135,13 +135,26 @@ function Slider() {
             {slide.video ? (
               <video
                 ref={(el) => (videoRefs.current[index] = el)}
-                src={slide.video}
                 poster={slide.poster}
                 muted
                 playsInline
                 preload="metadata"
                 className="w-full rounded-4xl object-cover max-xl:h-155 max-lg:h-167.5 max-md:h-120"
-              />
+              >
+                {/* Mobile video */}
+                <source
+                  src={slide.videoMobile}
+                  media="(max-width: 767px)"
+                  type="video/mp4"
+                />
+
+                {/* Desktop video */}
+                <source
+                  src={slide.video}
+                  media="(min-width: 768px)"
+                  type="video/mp4"
+                />
+              </video>
             ) : (
               <div className="w-full rounded-4xl overflow-hidden">
                 <img
@@ -169,7 +182,7 @@ function Slider() {
         ))}
       </Swiper>
 
-      <div className="sticky bottom-8 z-10 my-20">
+      <div className="sticky bottom-8 z-10 md:my-20">
         <Pagination
           ref={paginationRef}
           total={SLIDER_DATA.length}

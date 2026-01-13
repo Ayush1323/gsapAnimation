@@ -3,11 +3,13 @@ import sliderTwo from "../../assets/Images/slider/slider-two.jpg";
 import sliderThree from "../../assets/Images/slider/slider-three-one.jpg";
 import sliderFour from "../../assets/Images/slider/slider-four-one.jpg";
 import sliderFive from "../../assets/Images/slider/slider-five-one.jpg";
+import mobileVideo from "../../assets/Images/small_2x.mp4";
 
 export const SLIDER_DATA = [
   {
     id: 1,
     video: sliderVideo,
+    videoMobile: mobileVideo,
     title: "M5, M4 Pro and M4 Max.<br />One big, powerful family.",
     scale: false,
   },

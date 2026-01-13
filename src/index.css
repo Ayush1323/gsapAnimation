@@ -133,3 +133,16 @@
     color: transparent;
   }
 }
+
+/* For the specific element or body */
+.element {
+  /* For Internet Explorer and older Edge */
+  -ms-overflow-style: none;
+  /* For Firefox */
+  scrollbar-width: none;
+}
+
+/* For Chrome, Safari, Opera (WebKit browsers) */
+.element::-webkit-scrollbar {
+  display: none;
+}

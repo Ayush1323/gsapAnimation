@@ -1,7 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import gsap from "gsap";
 import { CLOSER_LOOK_OPTIONS } from "../../utils/closerLook/closerLook";
-import CloserLookVideo from "../../assets/Videos/closerLook.mp4";
+import CloserLookVideo from "../../assets/Videos/lookMobile.mp4";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const DEFAULT_MEDIA = CloserLookVideo;
 
@@ -13,12 +17,13 @@ export default function MobileCloserLook() {
   const mediaRef = useRef(null);
   const bubbleRef = useRef(null);
   const optionsRef = useRef(null);
+  const mainOptionsRef = useRef(null);
 
   const item = CLOSER_LOOK_OPTIONS[index];
   const media = active ? item?.image : DEFAULT_MEDIA;
   const isVideo = media?.endsWith(".mp4");
 
-  useEffect(() => {
+  useGSAP(() => {
     if (!mediaRef.current) return;
 
     const startX = 80 * direction;
@@ -65,7 +70,10 @@ export default function MobileCloserLook() {
   };
 
   return (
-    <section className="relative h-155 bg-linear-to-b from-black via-[#0b0b0c] to-[#1c1c1e] overflow-hidden">
+    <section
+      ref={mainOptionsRef}
+      className="relative h-130 bg-linear-to-b from-black via-[#0b0b0c] to-[#1c1c1e] overflow-hidden"
+    >
       {/* Media */}
       {isVideo ? (
         <video
@@ -179,13 +187,13 @@ export default function MobileCloserLook() {
       {/* Options (default) */}
       <div
         ref={optionsRef}
-        className="absolute bottom-6 left-0 w-full px-4 flex gap-3 z-20"
+        className="absolute bottom-6 left-0 w-full px-4 flex gap-2 z-20 element overflow-auto"
       >
         {CLOSER_LOOK_OPTIONS.map((o, i) => (
           <button
             key={o.id}
             onClick={() => handleSelect(i)}
-            className="shrink-0 px-5 py-3 rounded-full bg-[#1c1c1e]/90 backdrop-blur-xl text-white text-sm"
+            className="shrink-0 px-5 py-3 rounded-full bg-[#1c1c1e]/90 backdrop-blur-xl text-white text-[16px] font-medium"
           >
             {o.label}
           </button>

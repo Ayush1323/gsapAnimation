@@ -31,7 +31,7 @@ function CloserLook() {
     <section ref={closerSectionref} className="bg-[#1d1d1f] py-20 text-white">
       <div
         ref={closerSectionTitleref}
-        className="max-w-315 mx-auto text-white md:text-[56px] text-[28px] font-semibold leading-tight md:px-0 px-4"
+        className="max-w-315 mx-auto text-white md:text-[56px] text-[28px] font-semibold leading-tight lg:px-0 px-4"
       >
         <span className="inline-block mr-3">Take a closer look.</span>
       </div>
