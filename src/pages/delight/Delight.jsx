@@ -136,7 +136,6 @@ function Delight() {
     });
 
     mm.add("(max-width: 767px)", () => {
-      ScrollTrigger.getAll().forEach(st => st.kill());
       gsap.set(imageRef.current, { scale: 1 });
       gsap.set(overlayRef.current, { opacity: 0 });
     });
@@ -150,10 +149,7 @@ function Delight() {
         ref={sectionRef}
         className="relative bg-black overflow-hidden md:h-screen flex items-center justify-center"
       >
-        <div
-          ref={imageWrapRef}
-          className="relative w-full"
-        >
+        <div ref={imageWrapRef} className="relative w-full">
           <img
             ref={imageRef}
             src={displayHero}
@@ -174,7 +170,7 @@ function Delight() {
             {lines.map((text, i) => (
               <p
                 key={i}
-                ref={el => (linesRef.current[i] = el)}
+                ref={(el) => (linesRef.current[i] = el)}
                 className="text-white text-[42px] font-semibold"
               >
                 {text}
@@ -185,12 +181,12 @@ function Delight() {
       </section>
 
       {/* MOBILE CONTENT BELOW IMAGE */}
-      <section className="bg-black px-6 py-14 md:hidden">
-        <div className="space-y-1 text-center">
+      <section className="bg-black md:px-6 px-1 md:py-14 py-4 md:hidden">
+        <div className="space-y-1 text-start">
           {lines.map((text, i) => (
             <p
               key={i}
-              className="text-white text-lg font-medium leading-relaxed"
+              className="text-white text-lg font-semibold leading-[1.5]"
             >
               {text}
             </p>

@@ -208,9 +208,9 @@ function ContinuityShowcase({ data }) {
 
       {/* DESCRIPTION */}
       <div className="text-center max-w-3xl mx-auto px-4">
-        <p className="text-[#86868b] text-[14px] sm:text-[16px] lg:text-[17px] font-semibold leading-[1.35]">
+        <div className="text-[#86868b] text-[14px] sm:text-[16px] lg:text-[17px] font-semibold leading-[1.35]">
           {data[activeIndex].description}
-        </p>
+        </div>
       </div>
     </section>
   );

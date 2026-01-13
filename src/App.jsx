@@ -4,6 +4,7 @@ import BatteryLife from "./pages/batteryLife/BatteryLife";
 import BornToRun from "./pages/bornToRun/BornToRun";
 import BuiltForAi from "./pages/builtForAi/BuiltForAi";
 import CloserLook from "./pages/closerLook/CloserLook";
+import DelightHeader from "./pages/delight/DelightHeader";
 import DragonLaptop from "./pages/dragonLaptop/DragonLaptop";
 import FreshFaced from "./pages/freshFaced/FreshFaced";
 import GreatPowers from "./pages/greatPowers/GreatPowers";
@@ -40,8 +41,7 @@ function App() {
       <LequidSlider />
       <BatterTogather />
       <YourAmbitions />
-      {/* Niche vadu baki chhe */}
-      {/* <DelightHeader />  */}
+      <DelightHeader />
       <NanoTexture />
       <UltimateShow />
       <PowerfullConnection />

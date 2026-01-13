@@ -190,7 +190,9 @@ function ScrollingFive() {
     );
 
     return () => {
-      tl.scrollTrigger.kill();
+      if (tl.scrollTrigger) {
+        tl.scrollTrigger.kill();
+      }
       tl.kill();
     };
   }, []);
