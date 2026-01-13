@@ -1,7 +1,8 @@
-import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import ContentBlock from "../batterTogather/ContentBlock";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,24 +29,29 @@ function BuiltForAi() {
   );
 
   return (
-    <div ref={aiTextRender} className="max-w-230 mx-auto py-30">
-      <p className="text-[24px] font-semibold text-[#f5f5f7]">AI</p>
-
-      <p className="text-[80px] font-semibold text-[#f5f5f7] leading-[1.1] mt-4">
-        Built for AI.
-        <br /> From the silicon up.
-      </p>
-
-      <p className="text-[#86868b] font-semibold text-[21px] mt-14 leading-[1.4]">
-        Apple silicon, and every major subsystem that powers it, is designed for
-        AI — creating a platform that comprehensively unites hardware, software
-        and ecosystem. So you can{" "}
-        <span className="text-white">
-          run demanding on-device AI workloads with incredible power efficiency.
-        </span>{" "}
-        Always knowing that security and privacy are designed in, not just
-        bolted on.
-      </p>
+    <div ref={aiTextRender} className="sm:py-24 lg:py-30 py-16 max-lg:px-4">
+      <ContentBlock
+        eyebrow="AI"
+        title={
+          <>
+            Built for AI. <br />
+            From the silicon up.
+          </>
+        }
+        description={
+          <>
+            Apple silicon, and every major subsystem that powers it, is designed
+            for AI — creating a platform that comprehensively unites hardware,
+            software and ecosystem. So you can{" "}
+            <span className="text-white">
+              run demanding on-device AI workloads with incredible power
+              efficiency.
+            </span>{" "}
+            Always knowing that security and privacy are designed in, not just
+            bolted on.
+          </>
+        }
+      />
     </div>
   );
 }

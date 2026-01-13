@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { HEADER_VALUE } from "../../utils/header/header";
 import NextIcon from "../../assets/Icons/NextIcon";
+import PrevIcon from "../../assets/Icons/PrevIcon";
 
 function MobileMenu({ open, onClose }) {
   const menuRef = useRef(null);
@@ -55,7 +56,7 @@ function MobileMenu({ open, onClose }) {
   return (
     <div
       ref={menuRef}
-      className="fixed inset-0 z-999 bg-[#1d1d1f] text-white px-6 py-5"
+      className="fixed inset-0 z-999 bg-[#1d1d1f] text-white px-6 py-5 overflow-auto"
     >
       {/* HEADER */}
       <div className="flex justify-end items-center mb-8">
@@ -64,7 +65,7 @@ function MobileMenu({ open, onClose }) {
 
       {/* MAIN MENU */}
       {!activeItem && (
-        <ul className="space-y-4">
+        <ul className="space-y-4 pb-10">
           {menuItems.map((item) => (
             <li
               key={item.id}
@@ -82,12 +83,15 @@ function MobileMenu({ open, onClose }) {
 
       {/* SUB MENU */}
       {activeItem && (
-        <div ref={submenuRef} className="absolute inset-0 bg-black px-6 py-5">
+        <div
+          ref={submenuRef}
+          className="absolute inset-0 bg-[#1d1d1f] px-6 py-5"
+        >
           <button
             className="mb-6 text-sm opacity-80 flex items-center gap-1"
             onClick={handleBack}
           >
-            ← Back
+            <PrevIcon size={20} />
           </button>
 
           <h3 className="text-xl mb-5">{activeItem.label}</h3>

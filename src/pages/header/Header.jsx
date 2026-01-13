@@ -43,7 +43,7 @@ function Header() {
           showOverlay ? "bg-[#161617]" : "bg-black"
         }`}
       >
-        <div className="max-w-260 mx-auto flex items-center px-4 h-11 text-[12px] gap-6 max-lg:justify-between">
+        <div className="max-w-260 mx-auto flex items-center px-4 h-11 text-[12px] gap-6 max-lg:justify-between lg:w-fit">
           {/* LEFT : APPLE LOGO */}
           <div className="flex items-center">
             {leftItems.map((item) => (
@@ -76,11 +76,11 @@ function Header() {
           </div>
 
           {/* RIGHT : ICONS + MOBILE MENU */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center lg:gap-2">
             {rightItems.map((item) => (
               <div
                 key={item.id}
-                className={`cursor-pointer px-3 text-white flex items-center ${
+                className={`cursor-pointer px-3 text-white flex items-center last:pr-0 ${
                   item.type === "menu" ? "lg:hidden" : ""
                 }`}
                 onClick={() => {

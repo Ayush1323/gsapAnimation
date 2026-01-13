@@ -110,14 +110,25 @@ function Slider() {
           swiperRef.current = swiper;
           setActiveIndex(swiper.realIndex);
         }}
-        slidesPerView={1.5}
-        centeredSlides
+        slidesPerView={1.05}
+        centeredSlides={false}
         spaceBetween={20}
-        allowTouchMove={false}
+        allowTouchMove={true}
+        slidesOffsetAfter={16}
+        slidesOffsetBefore={16}
         slideToClickedSlide
         speed={1000}
         className="mySwiper"
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        breakpoints={{
+          1200: {
+            slidesPerView: 1.5,
+            allowTouchMove: false,
+            centeredSlides: true,
+            slidesOffsetAfter: 0,
+            slidesOffsetBefore: 0,
+          },
+        }}
       >
         {SLIDER_DATA.map((slide, index) => (
           <SwiperSlide key={slide.id} className="relative cursor-pointer">
@@ -129,14 +140,14 @@ function Slider() {
                 muted
                 playsInline
                 preload="metadata"
-                className="w-full rounded-4xl object-cover"
+                className="w-full rounded-4xl object-cover max-xl:h-155 max-lg:h-167.5 max-md:h-120"
               />
             ) : (
               <div className="w-full rounded-4xl overflow-hidden">
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className={`w-full rounded-4xl ${
+                  className={`w-full  rounded-4xl max-md:h-120 max-xl:object-cover max-xl:h-155 max-lg:h-167.5 ${
                     slide.scale && activeIndex === index
                       ? "transition-all scale-110 ease-in-out duration-2500 delay-700"
                       : ""
@@ -145,10 +156,10 @@ function Slider() {
               </div>
             )}
 
-            <div className="absolute top-10 left-10 pointer-events-none">
+            <div className="absolute md:top-10 top-2 md:left-10 left-2 max-md:m-4 pointer-events-none">
               <h2
                 ref={(el) => (titleRefs.current[index] = el)}
-                className={`text-[28px] max-w-160 font-semibold leading-[1.2] ${
+                className={`md:text-[28px] text-base max-w-160 font-semibold leading-[1.2] ${
                   index === 2 ? "text-black" : "text-white"
                 }`}
                 dangerouslySetInnerHTML={{ __html: slide.title }}

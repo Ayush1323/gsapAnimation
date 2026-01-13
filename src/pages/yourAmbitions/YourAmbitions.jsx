@@ -1,7 +1,7 @@
-import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import { YOUR_AMBISION } from "../../utils/ContinuityData";
 import ContentBlock from "../batterTogather/ContentBlock";
 import ContinuityShowcase from "../batterTogather/ContinuityShowcase";
@@ -29,7 +29,7 @@ function YourAmbitions() {
   );
 
   return (
-    <div className="py-30" ref={continuityRef}>
+    <div className="py-20 sm:py-24 lg:py-30 px-4 sm:px-8" ref={continuityRef}>
       <ContentBlock
         eyebrow="Apps"
         title="Your ambitions. There’s an app for that."
@@ -45,7 +45,7 @@ function YourAmbitions() {
         className={"max-w-225 mx-auto"}
       />
 
-      <div className="max-w-263 mx-auto">
+      <div className="max-w-263 mx-auto mt-0 sm:mt-16 ">
         <ContinuityShowcase data={YOUR_AMBISION} />
       </div>
     </div>

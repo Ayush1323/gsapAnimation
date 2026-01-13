@@ -57,7 +57,6 @@ function ScrollingFive() {
         end: "+=2400",
         scrub: true,
         pin: true,
-        // markers: true,
       },
     });
 
@@ -234,12 +233,12 @@ function ScrollingFive() {
         <div ref={imageRef} className="w-full flex justify-center">
           <div
             ref={textRef}
-            className="flex flex-col justify-center items-center absolute top-[10%] left-1/2 transform -translate-x-1/2 z-10"
+            className="flex flex-col justify-center items-center absolute xl2:top-[10%] xl:top-[17%] top-[20%] left-1/2 transform -translate-x-1/2 z-10"
           >
             <div className="text-2xl font-semibold text-[#f5f5f7]">
               Performance
             </div>
-            <div className="text-[80px] font-semibold inline-block bg-[linear-gradient(90deg,var(--color-apple-1),var(--color-apple-2)_31%,var(--color-apple-3)_68%,var(--color-apple-4))] bg-clip-text text-transparent">
+            <div className="2xl:text-[80px] xl2:text-[70px] xl:text-[60px] text-[64px] whitespace-nowrap font-semibold inline-block bg-[linear-gradient(90deg,var(--color-apple-1),var(--color-apple-2)_31%,var(--color-apple-3)_68%,var(--color-apple-4))] bg-clip-text text-transparent">
               Happily ever faster.
             </div>
           </div>
@@ -254,7 +253,7 @@ function ScrollingFive() {
           />
           <p
             ref={paragraphRef}
-            className="absolute bottom-35 font-semibold left-1/2 transform -translate-x-1/2 z-10 text-[#86868b] max-w-220 leading-[1.2] text-[21px] text-center"
+            className="absolute 2xl:bottom-35 lg:bottom-20 bottom-35 font-semibold left-1/2 transform -translate-x-1/2 z-10 text-[#86868b] lg:max-w-220 w-full lg:px-0 px-10 leading-[1.2] text-[21px] text-center"
           >
             The M5 chip joins M4 Pro and M4 Max to create the most advanced
             series of chips ever built for a pro laptop. Each chip delivers
@@ -268,8 +267,7 @@ function ScrollingFive() {
           </p>
           <p
             ref={paragraphRef2}
-            className="absolute top-1/2  right-[20%] -translate-x-1/2 transform -translate-y-1/2 z-10 leading-[1.2] max-w-60 text-[32px]
-            font-semibold inline-block bg-[linear-gradient(90deg,var(--color-apple-1),var(--color-apple-2)_31%,var(--color-apple-3)_68%,var(--color-apple-4))] bg-clip-text text-transparent"
+            className="absolute top-1/2 right-5 lg:right-10 xl:right-[10%] 2xl:right-[20%] 3xl:-translate-x-1/2 transform -translate-y-1/2 z-10 leading-[1.2] max-w-60 2xl:text-[32px] lg:text-3xl text-2xl max-lg:max-w-45 font-semibold inline-block bg-[linear-gradient(90deg,var(--color-apple-1),var(--color-apple-2)_31%,var(--color-apple-3)_68%,var(--color-apple-4))] bg-clip-text text-transparent"
           >
             Up to 6x faster AI performance than M1
             <sup className="text-apple-4 font-semibold underline text-xl">
@@ -278,7 +276,7 @@ function ScrollingFive() {
           </p>
           <p
             ref={paragraphRef3}
-            className="absolute bottom-40 font-semibold left-1/2 transform -translate-x-1/2 z-10 text-[#86868b] max-w-220 leading-[1.2] text-[21px] text-center"
+            className="absolute 2xl:bottom-40 lg:bottom-25 bottom-40 font-semibold left-1/2 transform -translate-x-1/2 z-10 text-[#86868b] lg:max-w-220 w-full lg:px-0 px-10 leading-[1.2] text-[21px] text-center"
           >
             A powerful Neural Accelerator is built into each GPU core of the M5
             chip, which{" "}

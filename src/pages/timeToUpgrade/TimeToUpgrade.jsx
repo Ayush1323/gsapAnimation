@@ -1,7 +1,7 @@
-import { useState, useRef } from "react";
-import { upgradeData } from "./upgradeData";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef, useState } from "react";
+import { upgradeData } from "./upgradeData";
 
 function TimeToUpgrade() {
   const keys = Object.keys(upgradeData);
@@ -13,7 +13,6 @@ function TimeToUpgrade() {
   const active = upgradeData[activeKey];
   const { hero, intelligence, battery, display } = active.cards;
 
-  // 🔹 Initial animation
   useGSAP(() => {
     gsap.from(".upgrade-heading", {
       y: 60,
@@ -35,33 +34,30 @@ function TimeToUpgrade() {
     () => {
       gsap.fromTo(
         cardsRef.current,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          duration: 1.8,
-          ease: "power3.out",
-        }
+        { opacity: 0 },
+        { opacity: 1, duration: 1.4, ease: "power3.out" }
       );
     },
     { dependencies: [activeKey] }
   );
 
   return (
-    <div ref={containerRef} className="max-w-240 py-30 mx-auto">
+    <section
+      ref={containerRef}
+      className="max-w-240 mx-auto px-4 sm:px-8 lg:px-10 py-20 lg:py-30"
+    >
       {/* Heading */}
-      <h2 className="upgrade-heading text-[80px] font-semibold text-[#f5f5f7] text-center leading-none tracking-tight max-w-235 mx-auto">
+      <h2 className="upgrade-heading text-[40px] sm:text-[56px] lg:text-[80px] font-semibold text-[#f5f5f7] text-center leading-[1.05] tracking-tight max-w-6xl mx-auto">
         There’s never been a better time to upgrade.
       </h2>
 
       {/* Select */}
-      <div className="flex justify-center mt-12">
-        <div className="relative">
+      <div className="flex justify-center mt-10 sm:mt-12">
+        <div className="relative w-full max-w-xs sm:max-w-sm">
           <select
             value={activeKey}
             onChange={(e) => setActiveKey(e.target.value)}
-            className="appearance-none bg-black border border-[#424245] text-white px-6 py-3 pr-12 rounded-full text-[17px] w-90 cursor-pointer"
+            className="w-full appearance-none bg-black border border-[#424245] text-white px-6 py-3 pr-12 rounded-full text-[16px] sm:text-[17px] cursor-pointer"
           >
             {keys.map((key) => (
               <option key={key} value={key}>
@@ -76,21 +72,21 @@ function TimeToUpgrade() {
       </div>
 
       {/* Subtitle */}
-      <div className="upgrade-subtitle text-[28px] text-[#86868b] mt-4 font-semibold text-center">
+      <p className="upgrade-subtitle text-[18px] sm:text-[22px] lg:text-[28px] text-[#86868b] mt-5 font-semibold text-center mx-auto">
         {active.subtitle}
-      </div>
+      </p>
 
       {/* Grid */}
-      <div className="grid grid-cols-2 gap-4 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
         {/* HERO */}
         <div
           ref={(el) => (cardsRef.current[0] = el)}
-          className="row-span-2 p-10 rounded-4xl flex items-end bg-center bg-no-repeat"
+          className="md:row-span-2 p-6 sm:p-8 lg:p-10 rounded-3xl lg:rounded-4xl flex items-end bg-center bg-cover min-h-[160px] sm:min-h-[320px]"
           style={{ backgroundImage: `url(${hero.bgImage})` }}
         >
           <div>
-            <img src={hero.icon} alt="" />
-            <p className="text-[40px] font-semibold text-[#f5f5f7] mt-2 leading-none">
+            <img src={hero.icon} alt="" className="w-10 sm:w-12" />
+            <p className="text-[26px] sm:text-[32px] lg:text-[40px] font-semibold text-[#f5f5f7] mt-3 leading-tight">
               {hero.text}
             </p>
           </div>
@@ -99,14 +95,16 @@ function TimeToUpgrade() {
         {/* INTELLIGENCE */}
         <div
           ref={(el) => (cardsRef.current[1] = el)}
-          className="inline-block rounded-2xl bg-rainbow-border p-1 min-h-57.5"
+          className="rounded-2xl bg-rainbow-border p-1 md:min-h-[180px] min-h-[160px]"
         >
-          <div className="bg-[#1d1d1f] rounded-2xl h-full px-10 flex items-center gap-4">
-            <img src={intelligence.icon} alt="" />
-            <div className="text-[28px] font-semibold text-[#f5f5f7] leading-[1.2]">
+          <div className="bg-[#1d1d1f] rounded-2xl h-full px-6 sm:px-8 lg:px-10 flex items-center gap-4">
+            <img src={intelligence.icon} alt="" className="w-8 sm:w-10" />
+            <div className="text-[18px] sm:text-[22px] lg:text-[28px] font-semibold text-[#f5f5f7] leading-tight">
               {intelligence.title}
               <br />
-              <span className="text-rainbow">{intelligence.highlight}</span>
+              <span className="text-rainbow">
+                {intelligence.highlight}
+              </span>
             </div>
           </div>
         </div>
@@ -114,28 +112,27 @@ function TimeToUpgrade() {
         {/* BATTERY */}
         <div
           ref={(el) => (cardsRef.current[2] = el)}
-          className="row-span-2 bg-[#1d1d1f] p-10 rounded-4xl flex flex-col justify-end gap-3 items-start"
+          className="md:row-span-2 bg-[#1d1d1f] p-6 sm:p-8 lg:p-10 rounded-3xl lg:rounded-4xl flex flex-col justify-end gap-3 md:min-h-[260px]"
         >
-          <img src={battery.icon} alt="" />
-          <p className="text-[40px] font-semibold text-[#f5f5f7] leading-[1.2]">
+          <img src={battery.icon} alt="" className="w-10 sm:w-12" />
+          <p className="text-[26px] sm:text-[32px] lg:text-[40px] font-semibold text-[#f5f5f7] leading-tight">
             {battery.text}
-            <br />
-            <span className="text-[#86868b] text-[24px]">{battery.sub}</span>
+            <span className="text-[#86868b] text-[32px]">{battery.sub}</span>
           </p>
         </div>
 
         {/* DISPLAY */}
         <div
           ref={(el) => (cardsRef.current[3] = el)}
-          className="bg-[#1d1d1f] p-10 rounded-4xl flex gap-10 items-center"
+          className="bg-[#1d1d1f] p-6 sm:p-8 lg:p-10 rounded-3xl lg:rounded-4xl flex gap-6 items-center max-md:min-h-[160px]"
         >
-          <img src={display.icon} alt="" />
-          <div className="text-[28px] font-semibold text-[#f5f5f7] leading-[1.2]">
+          <img src={display.icon} alt="" className="w-10 sm:w-12" />
+          <div className="text-[18px] sm:text-[22px] lg:text-[28px] font-semibold text-[#f5f5f7] leading-tight">
             {display.text}
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

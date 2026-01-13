@@ -1,17 +1,18 @@
-import ContentBlock from "../batterTogather/ContentBlock";
-import securityHero from "../../assets/Images/security_hero__f06nvgwd8eye_large.jpg";
-import touchIdIcon from "../../assets/Images/noCompromise/security_icon_touchid__esgl4qj1ylkm_large.png";
-import findMyIcon from "../../assets/Images/noCompromise/security_icon_findmy__edciyxehqsa6_large.png";
-import fileVaultIcon from "../../assets/Images/noCompromise/security_icon_privacy__vf4d2pc74v6i_large.png";
-import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import findMyIcon from "../../assets/Images/noCompromise/security_icon_findmy__edciyxehqsa6_large.png";
+import fileVaultIcon from "../../assets/Images/noCompromise/security_icon_privacy__vf4d2pc74v6i_large.png";
+import touchIdIcon from "../../assets/Images/noCompromise/security_icon_touchid__esgl4qj1ylkm_large.png";
+import securityHero from "../../assets/Images/security_hero__f06nvgwd8eye_large.jpg";
+import ContentBlock from "../batterTogather/ContentBlock";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function NoCompromise() {
   const securityFeatureRef = useRef(null);
+
   const securityFeatures = [
     {
       id: 1,
@@ -40,7 +41,7 @@ function NoCompromise() {
     () => {
       gsap.from(securityFeatureRef.current.children, {
         opacity: 0,
-        y: 100,
+        y: 80,
         duration: 1,
         ease: "power3.out",
         stagger: 0.2,
@@ -54,29 +55,49 @@ function NoCompromise() {
   );
 
   return (
-    <div className="py-30 relative">
+    <section className="py-20 sm:py-24 lg:py-30 relative px-4 sm:px-8">
       <ContentBlock
         eyebrow="Security"
         title="No compromises."
-        className={"max-w-230! mb-20"}
+        className="max-w-230! mb-14 sm:mb-20"
       />
+
+      {/* Hero Image */}
       <div ref={securityFeatureRef} className="max-w-270 mx-auto">
-        <img src={securityHero} alt="" className="w-full h-full object-cover" />
+        <img
+          src={securityHero}
+          alt=""
+          className="w-full h-auto object-cover rounded-xl"
+        />
       </div>
-      <div ref={securityFeatureRef} className="max-w-230 mx-auto">
-        <p className="text-[21px] font-semibold text-[#86868b] leading-[1.2] mt-15">
-          <span className="text-white">Security starts with Apple silicon</span>{" "}
+
+      {/* Content */}
+      <div
+        ref={securityFeatureRef}
+        className="max-w-230 mx-auto mt-12 sm:mt-15"
+      >
+        <p className="text-[19px] lg:text-[21px] font-semibold text-[#86868b] leading-[1.35]">
+          <span className="text-white">
+            Security starts with Apple silicon
+          </span>{" "}
           and extends to the macOS architecture. This deep integration of
           hardware and software along with automatic software updates helps keep
-          MacBook Pro stable and protected for the long term. The security
-          architecture also powers features such as Touch ID, Find My and
-          advanced defences that protect against viruses and malware.
+          MacBook Pro stable and protected for the long term.
         </p>
-        <div className="grid grid-cols-3 gap-4 mt-12">
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {securityFeatures.map((item) => (
-            <div key={item.id}>
-              <img src={item.image} alt={item.title} />
-              <p className="text-[17px] font-semibold text-[#86868b] leading-[1.2] mt-5">
+            <div
+              key={item.id}
+              className="flex flex-col items-start gap-4"
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                className="w-10 sm:w-12"
+              />
+              <p className="text-[15px] sm:text-[16px] lg:text-[17px] font-semibold text-[#86868b] leading-[1.35]">
                 <span className="text-white">{item.title}</span>{" "}
                 {item.description}
               </p>
@@ -84,7 +105,7 @@ function NoCompromise() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

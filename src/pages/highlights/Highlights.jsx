@@ -30,14 +30,20 @@ const Highlights = () => {
   );
 
   return (
-    <section ref={sectionRef} className="bg-[#1d1d1f] pt-30 pb-1 relative">
+    <section
+      ref={sectionRef}
+      className="bg-[#1d1d1f] xl:pt-30 pt-25 pb-1 relative"
+    >
       <div
         ref={(el) => (textRef.current[0] = el)}
-        className="max-w-315 mx-auto text-white text-[56px] font-semibold leading-tight"
+        className="max-w-315 mx-auto text-white md:text-[56px] text-[28px] font-semibold leading-tight px-4"
       >
         <span className="inline-block mr-3">Get the highlights.</span>
       </div>
-      <div ref={(el) => (textRef.current[1] = el)} className="mt-20">
+      <div
+        ref={(el) => (textRef.current[1] = el)}
+        className="xl:mt-20 lg:mt-16 mt-12"
+      >
         <Slider />
       </div>
     </section>

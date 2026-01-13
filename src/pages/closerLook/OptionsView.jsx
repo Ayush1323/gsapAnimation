@@ -276,7 +276,7 @@ function OptionsView() {
 
   return (
     <div ref={containerRef} className="relative max-w-350 h-184.5">
-      <div className="relative overflow-hidden rounded-4xl">
+      <div className="relative overflow-hidden lg:rounded-4xl h-full">
         {isVideo ? (
           <video
             ref={mediaRef}
@@ -329,7 +329,7 @@ function OptionsView() {
       <div className="flex">
         {" "}
         {isActive && (
-          <div className="absolute left-6 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-30">
+          <div className="absolute lg:left-6 left-2.5 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-30">
             <button
               ref={prevBtnRef}
               onClick={handlePrev}
@@ -381,7 +381,7 @@ function OptionsView() {
         )}
         <div
           ref={itemsRef}
-          className="absolute top-1/2 left-30 -translate-y-1/2 flex flex-col gap-4 z-20"
+          className="absolute top-1/2 lg:left-30 md:left-15 -translate-y-1/2 left-4 flex md:flex-col gap-4 z-20"
         >
           {CLOSER_LOOK_OPTIONS.map((item, index) => (
             <div
@@ -391,7 +391,7 @@ function OptionsView() {
                 expandedIndex === index
                   ? "bg-[#272729]/60 backdrop-blur-2xl p-8"
                   : "bg-[#272729] p-4"
-              } rounded-4xl w-fit text-white cursor-pointer overflow-hidden transition-all duration-300`}
+              } rounded-4xl w-fit text-white cursor-pointer transition-all duration-300`}
             >
               {expandedIndex !== index && (
                 <div className="flex items-center gap-2">
@@ -426,7 +426,7 @@ function OptionsView() {
 
               <div
                 ref={(el) => (contentRefs.current[index] = el)}
-                className={`w-100 ${
+                className={`w-100 leading-[1.2] ${
                   expandedIndex === index ? "block" : "hidden"
                 }`}
               >
