@@ -9,7 +9,7 @@ function ScrollingMobile() {
           Happily <br /> ever faster.
         </div>
       </div>
-      <div>
+      <div className="flex flex-col justify-center items-center">
         <img
           src={mobileImage}
           alt=""
@@ -26,7 +26,7 @@ function ScrollingMobile() {
           through AI tasks at mind-bending speeds.
         </p>
       </div>
-      <div>
+      <div className="flex flex-col justify-center items-center">
         <img
           src={mobileImage2}
           alt=""
