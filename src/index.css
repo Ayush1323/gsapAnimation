@@ -147,7 +147,7 @@
   display: none;
 }
 
-.app-loader {
+.gsap-loader {
   position: fixed;
   inset: 0;
   background: #000;
@@ -155,29 +155,22 @@
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  overflow: hidden;
 }
 
-.loader-text {
-  font-size: clamp(2.5rem, 8vw, 6rem);
+.loader-word {
+  font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 600;
-  letter-spacing: -0.02em;
-  background: var(--gradient-apple);
+  letter-spacing: -0.03em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.loader-char {
+  display: inline-block;
+  will-change: transform, opacity;
+  background: var(--gradient-pink-purple);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  opacity: 0;
-  animation: breathe 2.4s ease-in-out infinite;
-}
-
-/* Breathing animation */
-@keyframes breathe {
-  0% {
-    opacity: 0.2;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.2;
-  }
 }

@@ -1,5 +1,6 @@
 import { lazy, Fragment, Suspense } from "react";
 import "./App.css";
+import GsapLoader from "./components/GsapLoader";
 const Header = lazy(() => import("./pages/header/Header"));
 const Hero = lazy(() => import("./pages/heroSection/Hero"));
 const Highlights = lazy(() => import("./pages/highlights/Highlights"));
@@ -30,13 +31,7 @@ const NoCompromise = lazy(() => import("./pages/noCompromise/NoCompromise"));
 const TimeToUpgrade = lazy(() => import("./pages/timeToUpgrade/TimeToUpgrade"));
 function App() {
   return (
-    <Suspense
-      fallback={
-        <div className="app-loader">
-          <h1 className="loader-text">MacBook Pro</h1>
-        </div>
-      }
-    >
+    <Suspense fallback={<GsapLoader />}>
       <Header />
       <Hero />
       <Highlights />
