@@ -85,12 +85,14 @@ const LiquidGlassSlider = ({ slides }) => {
                     loop
                     playsInline
                     className="w-full h-full object-cover rounded-2xl sm:rounded-3xl lg:rounded-4xl"
+                    loading="lazy"
                   />
                 ) : (
                   <img
                     src={item.image}
                     alt={item.title}
                     className="w-full h-full object-cover rounded-2xl sm:rounded-3xl lg:rounded-4xl"
+                    loading="lazy"
                   />
                 )}
               </div>

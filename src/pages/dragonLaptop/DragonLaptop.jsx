@@ -11,6 +11,7 @@ function DragonLaptop() {
             src={laptopImage}
             alt="Laptop"
             className="absolute inset-0 w-full h-full object-contain z-10"
+            loading="lazy"
           />
 
           {/* Dragon Video */}

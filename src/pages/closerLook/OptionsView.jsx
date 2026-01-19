@@ -282,10 +282,12 @@ function OptionsView() {
             ref={mediaRef}
             key={activeMedia}
             src={activeMedia}
+            alt=""
             autoPlay
             muted
             playsInline
             className="w-full h-full object-cover"
+            loiading="lazy"
           />
         ) : (
           <img
@@ -294,6 +296,7 @@ function OptionsView() {
             src={activeMedia}
             alt=""
             className="w-full h-full object-cover"
+            loading="lazy"
           />
         )}
 

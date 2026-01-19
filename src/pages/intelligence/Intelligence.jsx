@@ -66,6 +66,7 @@ function Intelligence() {
           src={aiAppleImage}
           alt="Apple Intelligence visualization showing AI capabilities"
           className="w-full h-auto object-cover rounded-lg sm:rounded-xl md:rounded-2xl lg:rounded-none"
+          loading="lazy"
         />
       </div>
     </div>

@@ -143,12 +143,14 @@ function ContinuityShowcase({ data }) {
                   loop
                   playsInline
                   className="w-full h-full object-cover rounded-3xl"
+                  loading="lazy"
                 />
               ) : (
                 <img
                   src={item.image}
                   alt=""
                   className="w-full h-full object-cover rounded-3xl"
+                  loading="lazy"
                 />
               )}
             </div>
@@ -184,7 +186,9 @@ function ContinuityShowcase({ data }) {
                 ref={(el) => (tabRefs.current[index] = el)}
                 onClick={() => handleIndexChange(index)}
                 className={`pb-3 whitespace-nowrap transition ${
-                  index === activeIndex ? "text-white" : "hover:text-white/80 cursor-pointer"
+                  index === activeIndex
+                    ? "text-white"
+                    : "hover:text-white/80 cursor-pointer"
                 }`}
               >
                 {item.tab}

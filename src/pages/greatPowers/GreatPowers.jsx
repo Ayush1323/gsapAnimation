@@ -37,6 +37,8 @@ function GreatPowers() {
         muted 
         playsInline 
         className="h-auto max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px] xl:max-w-none"
+        loading="lazy"
+        alt="Apple Lock Video"
       />
       
       {/* Heading */}

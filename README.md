@@ -98,5 +98,3 @@ If you like this project, feel free to **star the repository** ⭐
 Feedback and suggestions are always welcome!
 
 ---
-
-Happy Coding 💻✨

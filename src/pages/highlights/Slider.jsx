@@ -140,6 +140,8 @@ function Slider() {
                 playsInline
                 preload="metadata"
                 className="w-full rounded-4xl object-cover max-xl:h-155 max-lg:h-167.5 max-md:h-120"
+                loading="lazy"
+                alt={slide.title}
               >
                 {/* Mobile video */}
                 <source
@@ -165,6 +167,7 @@ function Slider() {
                       ? "transition-all scale-110 ease-in-out duration-2500 delay-700"
                       : ""
                   }`}
+                  loading="lazy"
                 />
               </div>
             )}

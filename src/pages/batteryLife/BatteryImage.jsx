@@ -54,6 +54,7 @@ function BatteryImage() {
         src={batteryHero}
         alt="MacBook Pro battery life visualization"
         className="w-full h-auto max-md:h-100 object-cover"
+        loading="lazy"
       />
     </div>
   );

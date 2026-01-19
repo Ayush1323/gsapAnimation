@@ -66,8 +66,9 @@ function NoCompromise() {
       <div ref={securityFeatureRef} className="max-w-270 mx-auto">
         <img
           src={securityHero}
-          alt=""
+          alt="Security Hero"
           className="w-full h-auto object-cover rounded-xl"
+          loading="lazy"
         />
       </div>
 
@@ -96,6 +97,7 @@ function NoCompromise() {
                 src={item.image}
                 alt={item.title}
                 className="w-10 sm:w-12"
+                loading="lazy"
               />
               <p className="text-[15px] sm:text-[16px] lg:text-[17px] font-semibold text-[#86868b] leading-[1.35]">
                 <span className="text-white">{item.title}</span>{" "}

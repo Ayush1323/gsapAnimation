@@ -12,6 +12,8 @@ function Hero() {
         muted
         playsInline
         className="absolute inset-0 w-full h-full -mt-10 max-md:object-cover"
+        loading="lazy"
+        alt="Macbook Pro Video"
       />
 
       {/* Content */}

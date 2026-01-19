@@ -143,7 +143,7 @@ function Chips() {
     >
       <div className="grid xl:grid-cols-[1fr_300px] grid-cols-[1fr_250px] xl:gap-x-12 gap-x-0 gap-y-20 items-start w-full mb-10">
         <div className="relative max-md:w-full max-2xl:w-250">
-          <img src={laptopImage} className="w-full" alt="" />
+          <img src={laptopImage} className="w-full" alt="" loading="lazy" />
           {CHEAP_IMAGES.map((src, i) => (
             <img
               key={i}
@@ -151,6 +151,7 @@ function Chips() {
               src={src}
               className="absolute top-0 left-0 w-full h-full object-cover mix-blend-screen "
               alt=""
+              loading="lazy"
             />
           ))}
         </div>
@@ -170,6 +171,7 @@ function Chips() {
                   src={chip.icon}
                   alt={chip.alt}
                   className="object-contain select-none pointer-events-none"
+                  loading="lazy"
                 />
               </div>
             ))}

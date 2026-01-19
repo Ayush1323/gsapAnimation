@@ -13,6 +13,7 @@ function ScrollingMobile() {
         <img
           src={mobileImage}
           alt=""
+          loading="lazy"
           className="h-105 w-105 object-cover mix-blend-screen -mt-10"
         />
         <p className="font-semibold z-10 text-[#86868b] leading-[1.2] text-[19px] text-center -mt-10">
@@ -31,6 +32,7 @@ function ScrollingMobile() {
           src={mobileImage2}
           alt=""
           className="h-105 w-105 object-cover mix-blend-screen -mt-10"
+          loading="lazy"
         />
         <p className="leading-[1.2] text-center text-2xl font-semibold text-apple-gradient -mt-18">
           Up to 6x faster AI <br /> performance than M1

@@ -49,9 +49,9 @@ function BornToRun() {
             }`}
           >
             {video ? (
-              <video ref={manVideoRef} src={video} autoPlay muted playsInline />
+              <video ref={manVideoRef} src={video} autoPlay muted playsInline loading="lazy" />
             ) : (
-              <img src={image} alt={title} />
+              <img src={image} alt={title} loading="lazy" />
             )}
           </div>
         </div>

@@ -71,7 +71,7 @@ function NewAnimation() {
           key={index}
           ref={(el) => (itemsRef.current[index] = el)}
           src={image}
-          alt=""
+          alt="flair"
           className="absolute h-14 w-14 opacity-0"
         />
       ))}

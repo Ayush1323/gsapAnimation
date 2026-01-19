@@ -7,12 +7,13 @@ function ChipsInMobile() {
       {CHIP_INFORMATION.map((c, i) => (
         <div key={i}>
           <div className="relative">
-            <img src={laptopImage} className="w-full" alt="" />
+            <img src={laptopImage} className="w-full" alt="" loading="lazy" />
 
             <img
               src={c.image}
               alt=""
               className="absolute top-0 left-0 w-full h-full object-cover mix-blend-screen"
+              loading="lazy"
             />
           </div>
           <div className="w-full flex justify-center mt-7 mb-5">
@@ -27,6 +28,7 @@ function ChipsInMobile() {
                 src={c.icon}
                 alt={c.alt}
                 className="object-contain select-none pointer-events-none"
+                loading="lazy"
               />
             </div>
           </div>

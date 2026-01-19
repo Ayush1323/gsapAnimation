@@ -153,8 +153,9 @@ function Delight() {
           <img
             ref={imageRef}
             src={displayHero}
-            alt=""
+            alt="Display Hero"
             className="w-full lg:h-auto md:h-auto max-lg:object-cover"
+            loading="lazy"
           />
         </div>
 

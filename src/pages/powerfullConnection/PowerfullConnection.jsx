@@ -82,6 +82,7 @@ function PowerfullConnection() {
             src={connection1}
             alt=""
             className="w-full h-auto object-cover"
+            loading="lazy"
           />
         </div>
 
@@ -93,6 +94,7 @@ function PowerfullConnection() {
             src={connection2}
             alt=""
             className="w-full h-auto object-cover"
+            loading="lazy"
           />
         </div>
       </div>

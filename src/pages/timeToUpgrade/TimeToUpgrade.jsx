@@ -85,7 +85,12 @@ function TimeToUpgrade() {
           style={{ backgroundImage: `url(${hero.bgImage})` }}
         >
           <div>
-            <img src={hero.icon} alt="" className="w-10 sm:w-12" />
+            <img
+              src={hero.icon}
+              alt=""
+              className="w-10 sm:w-12"
+              loading="lazy"
+            />
             <p className="text-[26px] sm:text-[32px] lg:text-[40px] font-semibold text-[#f5f5f7] mt-3 leading-tight">
               {hero.text}
             </p>
@@ -98,13 +103,16 @@ function TimeToUpgrade() {
           className="rounded-2xl bg-rainbow-border p-1 md:min-h-[180px] min-h-[160px]"
         >
           <div className="bg-[#1d1d1f] rounded-2xl h-full px-6 sm:px-8 lg:px-10 flex items-center gap-4">
-            <img src={intelligence.icon} alt="" className="w-8 sm:w-10" />
+            <img
+              src={intelligence.icon}
+              alt=""
+              className="w-8 sm:w-10"
+              loading="lazy"
+            />
             <div className="text-[18px] sm:text-[22px] lg:text-[28px] font-semibold text-[#f5f5f7] leading-tight">
               {intelligence.title}
               <br />
-              <span className="text-rainbow">
-                {intelligence.highlight}
-              </span>
+              <span className="text-rainbow">{intelligence.highlight}</span>
             </div>
           </div>
         </div>
@@ -114,7 +122,12 @@ function TimeToUpgrade() {
           ref={(el) => (cardsRef.current[2] = el)}
           className="md:row-span-2 bg-[#1d1d1f] p-6 sm:p-8 lg:p-10 rounded-3xl lg:rounded-4xl flex flex-col justify-end gap-3 md:min-h-[260px]"
         >
-          <img src={battery.icon} alt="" className="w-10 sm:w-12" />
+          <img
+            src={battery.icon}
+            alt=""
+            className="w-10 sm:w-12"
+            loading="lazy"
+          />
           <p className="text-[26px] sm:text-[32px] lg:text-[40px] font-semibold text-[#f5f5f7] leading-tight">
             {battery.text}
             <span className="text-[#86868b] text-[32px]">{battery.sub}</span>
@@ -126,7 +139,12 @@ function TimeToUpgrade() {
           ref={(el) => (cardsRef.current[3] = el)}
           className="bg-[#1d1d1f] p-6 sm:p-8 lg:p-10 rounded-3xl lg:rounded-4xl flex gap-6 items-center max-md:min-h-[160px]"
         >
-          <img src={display.icon} alt="" className="w-10 sm:w-12" />
+          <img
+            src={display.icon}
+            alt=""
+            className="w-10 sm:w-12"
+            loading="lazy"
+          />
           <div className="text-[18px] sm:text-[22px] lg:text-[28px] font-semibold text-[#f5f5f7] leading-tight">
             {display.text}
           </div>
