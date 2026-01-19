@@ -169,7 +169,7 @@
 .loader-char {
   display: inline-block;
   will-change: transform, opacity;
-  background: var(--gradient-pink-purple);
+  background: var(--gradient-apple);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

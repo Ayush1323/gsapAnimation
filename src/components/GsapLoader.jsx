@@ -1,12 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const TEXT = "MacBook Pro";
 
 export default function GsapLoader() {
   const charsRef = useRef([]);
 
-  useEffect(() => {
+  useGSAP(() => {
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
 
     tl.fromTo(
