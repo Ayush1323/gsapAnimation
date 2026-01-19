@@ -11,7 +11,7 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  /* ------------------ DATA GROUPING ------------------ */
+  /* DATA GROUPING */
   const leftItems = HEADER_VALUE.filter((item) => item.type === "logo");
 
   const centerItems = HEADER_VALUE.filter((item) => !item.type && item.hasMenu);
@@ -20,7 +20,7 @@ function Header() {
     (item) => item.type === "menu" || item.type === "icon"
   );
 
-  /* ------------------ ACTIVE DESKTOP ITEM ------------------ */
+  /* ACTIVE DESKTOP ITEM */
   const activeItem = useMemo(() => {
     return centerItems.find((item) => item.id === hoveredItem);
   }, [hoveredItem, centerItems]);
@@ -29,7 +29,7 @@ function Header() {
 
   return (
     <>
-      {/* DESKTOP OVERLAY (UNCHANGED) */}
+      {/* DESKTOP OVERLAY */}
       {showOverlay && (
         <div
           className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
@@ -55,7 +55,7 @@ function Header() {
             ))}
           </div>
 
-          {/* CENTER : DESKTOP MENU (UNCHANGED) */}
+          {/* CENTER : DESKTOP MENU */}
           <div className="hidden lg:flex items-center gap-2">
             {centerItems.map((item) => (
               <div
@@ -75,7 +75,6 @@ function Header() {
             ))}
           </div>
 
-          {/* RIGHT : ICONS + MOBILE MENU */}
           <div className="flex items-center lg:gap-2">
             {rightItems.map((item) => (
               <div
@@ -98,7 +97,7 @@ function Header() {
           </div>
         </div>
 
-        {/* DESKTOP HOVER MENU (UNCHANGED) */}
+        {/* DESKTOP HOVER MENU */}
         {showMenu && (
           <HoverItems
             activeItem={activeItem}
