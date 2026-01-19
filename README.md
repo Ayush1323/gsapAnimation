@@ -1,16 +1,104 @@
-# React + Vite
+# MacBook Pro Website Clone 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a **clone of the official MacBook Pro website**, built using **React** and **GSAP**.
+The goal of this project is to practice **advanced frontend animations**, smooth scrolling effects, and modern UI interactions inspired by Apple’s official design.
 
-Currently, two official plugins are available:
+## Live Vercel Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Link** : https://gsap-animation-topaz.vercel.app/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🔥 Features
 
-## Expanding the ESLint configuration
+- ⚛️ Built with **React**
+- 🎬 Smooth and powerful animations using **GSAP**
+- 🌀 Scroll-based animations (ScrollTrigger)
+- 📱 Fully responsive design (Desktop, Tablet, Mobile)
+- 🎨 Clean UI inspired by Apple’s official MacBook Pro website
+- 🚀 High-performance animations and transitions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- **React**
+- **GSAP**
+
+  - ScrollTrigger
+
+- **JavaScript (ES6+)**
+- **HTML5**
+- **CSS / SCSS**
+- **Vite**
+
+---
+
+## ⚙️ Installation & Setup
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/Ayush1323/gsapAnimation.git
+```
+
+2. **Navigate to the project folder**
+
+```bash
+cd gsapanimation
+```
+
+3. **Install dependencies**
+
+```bash
+npm install
+```
+
+4. **Run the development server**
+
+```bash
+npm run dev
+```
+
+5. Open your browser and visit:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 🎥 GSAP Animations Used
+
+- Scroll-based animations
+- Smooth transitions
+- Timeline-based animations
+- Element reveal effects
+- Video & image animation handling
+
+---
+
+## 📌 Disclaimer
+
+This project is created **only for educational and practice purposes**.
+All design credits go to **Apple Inc.**
+This project is **not affiliated with or endorsed by Apple**.
+
+---
+
+## 👨‍💻 Author
+
+**Ayush**
+Frontend Developer
+Passionate about **React, GSAP, and creative web animations**
+
+---
+
+## ⭐ Support
+
+If you like this project, feel free to **star the repository** ⭐
+Feedback and suggestions are always welcome!
+
+---
+
+Happy Coding 💻✨
