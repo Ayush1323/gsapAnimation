@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { FLAIR_IMAGES } from "../utils/newAnimation";
+import { useGSAP } from "@gsap/react";
 
 function NewAnimation() {
   const itemsRef = useRef([]);
@@ -9,7 +10,7 @@ function NewAnimation() {
   const lastXRef = useRef(0);
   const lastTimeRef = useRef(0);
 
-  useEffect(() => {
+  useGSAP(() => {
     const handleMouseMove = (e) => {
       const now = Date.now();
 
