@@ -27,9 +27,7 @@ The goal of this project is to practice **advanced frontend animations**, smooth
 
   - ScrollTrigger
 
-- **JavaScript (ES6+)**
-- **HTML5**
-- **CSS / SCSS**
+- **TailwindCSS**
 - **Vite**
 
 ---
