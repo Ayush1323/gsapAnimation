@@ -184,7 +184,7 @@ function ContinuityShowcase({ data }) {
                 ref={(el) => (tabRefs.current[index] = el)}
                 onClick={() => handleIndexChange(index)}
                 className={`pb-3 whitespace-nowrap transition ${
-                  index === activeIndex ? "text-white" : "hover:text-white/80"
+                  index === activeIndex ? "text-white" : "hover:text-white/80 cursor-pointer"
                 }`}
               >
                 {item.tab}
