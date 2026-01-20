@@ -63,7 +63,6 @@ function Slider() {
     if (prev && prev !== current) {
       gsap.to(prev, {
         opacity: 0,
-        x: activeIndex > prevIndexRef.current ? -150 : 150,
         duration: 0.6,
         ease: "power3.inOut",
       });
@@ -82,7 +81,6 @@ function Slider() {
         onEnterBack: playActiveVideo,
         onLeave: pauseAllVideos,
         onLeaveBack: pauseAllVideos,
-        // markers: true,
       });
 
       gsap.from(paginationRef.current, {
@@ -175,7 +173,7 @@ function Slider() {
             <div className="absolute md:top-10 top-2 md:left-10 left-2 max-md:m-4 pointer-events-none">
               <h2
                 ref={(el) => (titleRefs.current[index] = el)}
-                className={`md:text-[28px] text-base max-w-160 font-semibold leading-[1.2] ${
+                className={`md:text-[28px] text-base max-w-160 font-semibold leading-[1.2] opacity-0 ${
                   index === 2 ? "text-black" : "text-white"
                 }`}
                 dangerouslySetInnerHTML={{ __html: slide.title }}
